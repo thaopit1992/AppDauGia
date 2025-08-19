@@ -19,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.appdaugia.R
 import androidx.core.net.toUri
 import androidx.core.widget.NestedScrollView
+import com.example.appdaugia.utils.Utils
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
 
 class DangKyActivity : AppCompatActivity() {
@@ -47,6 +48,7 @@ class DangKyActivity : AppCompatActivity() {
     private lateinit var txt_country_recip : EditText
     private lateinit var check_dif : CheckBox
     private lateinit var nestedScrollView: NestedScrollView
+    private lateinit var checkboxDieuKhoan: CheckBox
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -82,6 +84,7 @@ class DangKyActivity : AppCompatActivity() {
         txt_postcode_recip = findViewById(R.id.txt_postcode_recip)
         txt_location_recip = findViewById(R.id.txt_location_recip)
         txt_country_recip = findViewById(R.id.txt_country_recip)
+        checkboxDieuKhoan = findViewById(R.id.checkboxDieuKhoan)
 
         ln_recip.visibility = View.GONE
         check_dif.setOnCheckedChangeListener { _, isChecked ->
@@ -99,27 +102,40 @@ class DangKyActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        btnDangKy.isEnabled = false
+        checkboxDieuKhoan.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                btnDangKy.isEnabled = true
+            } else {
+                btnDangKy.isEnabled = false
+            }
+        }
+
         btnDangKy.setOnClickListener {
                 // check param
-                if (!checkEditTextNotEmpty(txt_name, "Input your name", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txtfirst, "Input your first name", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txt_street, "Input your street", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txt_number, "Input your house number", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txt_poscode, "Input your postal code", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txt_location, "Input your location", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txt_country, "Input your country", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txt_phone, "Input your telephone", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txt_email, "Input your email", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txtusertt, "Input your tiktok username", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txt_pass, "Input your password", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txt_re_pass, "Input your confirm password", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_name, "Input your name", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txtfirst, "Input your first name", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_street, "Input your street", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_number, "Input your house number", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_poscode, "Input your postal code", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_location, "Input your location", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_country, "Input your country", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_phone, "Input your telephone", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_email, "Input your email", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txtusertt, "Input your tiktok username", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_pass, "Input your password", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_re_pass, "Input your confirm password", this)) return@setOnClickListener
             if(check_dif.isChecked){
-                if (!checkEditTextNotEmpty(txt_fullname_recip, "Input your fullname recipient", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txt_street_recip, "Input your street", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txt_house_recip, "Input your house number", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txt_postcode_recip, "Input your postal code", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txt_location_recip, "Input your location", this)) return@setOnClickListener
-                if (!checkEditTextNotEmpty(txt_country_recip, "Input your country", this)) return@setOnClickListener
+                if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_fullname_recip, "Input your fullname recipient", this)) return@setOnClickListener
+                if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_street_recip, "Input your street", this)) return@setOnClickListener
+                if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_house_recip, "Input your house number", this)) return@setOnClickListener
+                if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_postcode_recip, "Input your postal code", this)) return@setOnClickListener
+                if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_location_recip, "Input your location", this)) return@setOnClickListener
+                if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_country_recip, "Input your country", this)) return@setOnClickListener
+            }
+            if (txt_pass.text != txt_re_pass.text){
+                Toast.makeText(this, "Please confirm your password", Toast.LENGTH_SHORT).show()
+                txt_re_pass.requestFocus()
             }
 
             Toast.makeText(this, "Test pass", Toast.LENGTH_SHORT).show()

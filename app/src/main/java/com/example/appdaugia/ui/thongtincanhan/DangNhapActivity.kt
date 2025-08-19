@@ -12,7 +12,7 @@ import com.example.appdaugia.R
 class DangNhapActivity : AppCompatActivity() {
     private lateinit var btnDangKy: Button
     private lateinit var icBack: ImageView
-
+    private lateinit var tvForgot: TextView
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +22,12 @@ class DangNhapActivity : AppCompatActivity() {
         // Tìm View trong layout
         btnDangKy = findViewById(R.id.btnDangKy)
         icBack = findViewById(R.id.ic_back)
+        tvForgot = findViewById(R.id.tvForgot)
+
+        tvForgot.setOnClickListener {
+            val intent = Intent(this, QuenMatKhauActivity::class.java)
+            startActivity(intent)
+        }
 
         btnDangKy.setOnClickListener {
             val intent = Intent(this, DangKyActivity::class.java)
