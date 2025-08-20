@@ -10,8 +10,7 @@
     android:background="@drawable/background_app"
     android:fillViewport="true"
     android:fitsSystemWindows="true"
-    tools:context=".ui.thongtincanhan.DangKyActivity">
-
+    tools:context=".ui.thongtincanhan.ThayDoiThongTinActivity">
     <LinearLayout
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
@@ -20,39 +19,30 @@
         android:layout_height="wrap_content">
 
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/ic_back"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:background="@drawable/ic_back_24"/>
-
-        <TextView
-            android:textStyle="bold"
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
-            android:textSize="18dp"
-            android:paddingRight="64dp"
-            android:textColor="@color/black"
-            android:text="Member Sign Up"
-            android:textAllCaps="true"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </LinearLayout>
-    <TextView
-        android:gravity="center"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="8dp"
-        android:layout_gravity="center_vertical"
-        android:textSize="14dp"
-        android:textColor="@color/black"
-        android:text="Please fill in the form below to create an account"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ic_back"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/ic_back_24"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:paddingRight="64dp"
+                android:textColor="@color/black"
+                android:text="Change Info"
+                android:textAllCaps="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
 
 
         <LinearLayout
@@ -73,7 +63,7 @@
                 <View
                     android:layout_marginLeft="16dp"
                     android:layout_gravity="center"
-                    android:background="@color/grey"
+                    android:background="@color/black"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="1dp"/>
@@ -84,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    style="@style/textTitle"
+                    style="@style/textTitleWhite"
                     android:text="Name"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
@@ -114,7 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    style="@style/textTitle"
+                    style="@style/textTitleWhite"
                     android:text="First Name"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
@@ -134,7 +124,6 @@
                 android:layout_marginTop="6dp"
                 android:background="@drawable/bg_text_rounded"
                 style="@style/textHint"
-                android:textColor="@color/black"
                 android:hint="Input your first name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -145,7 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    style="@style/textTitle"
+                    style="@style/textTitleWhite"
                     android:text="Company"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
@@ -165,7 +154,6 @@
                 android:layout_marginTop="6dp"
                 android:background="@drawable/bg_text_rounded"
                 style="@style/textHint"
-                android:textColor="@color/black"
                 android:hint="Input your company if you have one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -176,7 +164,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    style="@style/textTitle"
+                    style="@style/textTitleWhite"
                     android:text="VAT ID"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
@@ -196,7 +184,6 @@
                 android:layout_marginTop="6dp"
                 android:background="@drawable/bg_text_rounded"
                 style="@style/textHint"
-                android:textColor="@color/black"
                 android:hint="Input your VAT ID if you have one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -217,7 +204,7 @@
                 <View
                     android:layout_marginLeft="16dp"
                     android:layout_gravity="center"
-                    android:background="@color/grey"
+                    android:background="@color/black"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="1dp"/>
@@ -229,7 +216,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    style="@style/textTitle"
+                    style="@style/textTitleWhite"
                     android:text="Street"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
@@ -249,7 +236,6 @@
                 android:layout_marginTop="6dp"
                 android:background="@drawable/bg_text_rounded"
                 style="@style/textHint"
-                android:textColor="@color/black"
                 android:hint="Street"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -259,7 +245,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    style="@style/textTitle"
+                    style="@style/textTitleWhite"
                     android:text="House number"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
@@ -279,7 +265,6 @@
                 android:layout_marginTop="6dp"
                 android:background="@drawable/bg_text_rounded"
                 style="@style/textHint"
-                android:textColor="@color/black"
                 android:hint="No."
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -289,7 +274,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    style="@style/textTitle"
+                    style="@style/textTitleWhite"
                     android:text="Postal code"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
@@ -309,7 +294,6 @@
                 android:layout_marginTop="6dp"
                 android:background="@drawable/bg_text_rounded"
                 style="@style/textHint"
-                android:textColor="@color/black"
                 android:hint="Postal code"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -319,7 +303,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    style="@style/textTitle"
+                    style="@style/textTitleWhite"
                     android:text="Location"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
@@ -339,7 +323,6 @@
                 android:layout_marginTop="6dp"
                 android:background="@drawable/bg_text_rounded"
                 style="@style/textHint"
-                android:textColor="@color/black"
                 android:hint="Location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -349,7 +332,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    style="@style/textTitle"
+                    style="@style/textTitleWhite"
                     android:text="Country"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
@@ -368,7 +351,6 @@
                 android:layout_marginTop="6dp"
                 android:background="@drawable/bg_text_rounded"
                 style="@style/textHint"
-                android:textColor="@color/black"
                 android:hint="Contry"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -381,7 +363,7 @@
                     android:id="@+id/check_dif"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:buttonTint="@color/black"
+                    android:buttonTint="@color/blue"
                     />
                 <TextView
                     android:layout_gravity="center"
@@ -422,7 +404,6 @@
                     android:layout_marginTop="6dp"
                     android:background="@drawable/bg_text_rounded_gray61"
                     style="@style/textHintGray61"
-                    android:textColor="@color/black"
                     android:hint="Fullname Recipient"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -453,7 +434,6 @@
                     android:background="@drawable/bg_text_rounded_gray61"
                     style="@style/textHintGray61"
                     android:hint="Street"
-                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -483,7 +463,6 @@
                     android:background="@drawable/bg_text_rounded_gray61"
                     style="@style/textHintGray61"
                     android:hint="No."
-                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -513,7 +492,6 @@
                     android:background="@drawable/bg_text_rounded_gray61"
                     style="@style/textHintGray61"
                     android:hint="Postal code"
-                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -543,7 +521,6 @@
                     android:background="@drawable/bg_text_rounded_gray61"
                     style="@style/textHintGray61"
                     android:hint="Location"
-                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
@@ -573,7 +550,6 @@
                     android:background="@drawable/bg_text_rounded_gray61"
                     style="@style/textHintGray61"
                     android:hint="Country"
-                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
@@ -596,7 +572,7 @@
                 <View
                     android:layout_marginLeft="16dp"
                     android:layout_gravity="center"
-                    android:background="@color/grey"
+                    android:background="@color/black"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="1dp"/>
@@ -607,7 +583,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    style="@style/textTitle"
+                    style="@style/textTitleWhite"
                     android:text="Telephone"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
@@ -636,7 +612,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    style="@style/textTitle"
+                    style="@style/textTitleWhite"
                     android:text="Email"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
@@ -660,6 +636,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_marginBottom="8dp"
                 android:textSize="14dp"
                 android:textColor="@color/black"
@@ -672,7 +650,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    style="@style/textTitle"
+                    style="@style/textTitleWhite"
                     android:text="TikTok username"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
@@ -689,6 +667,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="8dp"
                     android:textSize="14dp"
+                    android:textColor="@color/black"
                     android:text="(Please click the Check button to verify)"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -723,96 +702,12 @@
                     android:background="@drawable/checklist"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_marginTop="6dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    style="@style/textTitle"
-                    android:text="Password"
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_marginLeft="8dp"
-                    android:textSize="16dp"
-                    android:text="*"
-                    android:textColor="@android:color/holo_red_dark"
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <EditText
-                android:id="@+id/txt_pass"
-                android:layout_marginTop="6dp"
-                android:background="@drawable/bg_text_rounded"
-                style="@style/textHint"
-                android:textColor="@color/black"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <LinearLayout
-                android:layout_marginTop="6dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    style="@style/textTitle"
-                    android:text="Confirm Password"
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_marginLeft="8dp"
-                    android:textSize="16dp"
-                    android:text="*"
-                    android:textColor="@android:color/holo_red_dark"
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-            <EditText
-                android:id="@+id/txt_re_pass"
-                android:layout_marginTop="6dp"
-                android:background="@drawable/bg_text_rounded"
-                style="@style/textHint"
-                android:textColor="@color/grey"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <CheckBox
-                    android:id="@+id/checkboxDieuKhoan"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:buttonTint="@color/black"
-                    />
-                <TextView
-                    android:text="@string/text_dk"
-                    android:layout_gravity="center"
-                    android:textColor="@color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                </TextView>
-                <TextView
-                    android:text=" *"
-                    android:textColor="@android:color/holo_red_dark"
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                </TextView>
-            </LinearLayout>
-
             <!-- Button đăng ky -->
             <Button
                 android:id="@+id/btnDangKy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sign Up"
+                android:text="save"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp"
@@ -826,6 +721,4 @@
         </LinearLayout>
 
     </LinearLayout>
-
-
 </androidx.core.widget.NestedScrollView>

@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg_app_image"
+    android:background="@drawable/background_app"
+    android:fitsSystemWindows="true"
+    android:paddingTop="32dp"
     tools:context=".ui.thongtincanhan.ThongTinCaNhanFragment">
 
     <LinearLayout
@@ -15,20 +17,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <LinearLayout
-        android:padding="24dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:textStyle="bold"
             android:id="@+id/user"
             android:layout_gravity="center_vertical"
             android:gravity="center"
             android:textSize="18dp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:text="thông tin tài khoản"
             android:textAllCaps="true"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"/>
+        <ImageButton
+            android:layout_marginRight="10dp"
+            android:id="@+id/btnMore"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/settings_55dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_gravity="end"
+            android:contentDescription="More options"/>
     </LinearLayout>
 
     <LinearLayout
@@ -58,9 +72,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:enabled="false"
+                android:paddingTop="4dp"
+                android:paddingBottom="2dp"
                 android:id="@+id/txt_name"
                 style="@style/textHint"
                 android:hint="U00008211"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -95,9 +113,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:enabled="false"
+                android:paddingTop="4dp"
+                android:paddingBottom="2dp"
                 android:id="@+id/id_name"
                 style="@style/textHint"
                 android:hint="Thaopx"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -130,8 +152,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:enabled="false"
+                android:paddingTop="4dp"
+                android:paddingBottom="2dp"
                 android:id="@+id/txt_email"
                 style="@style/textHint"
+                android:background="@null"
                 android:hint="thaopx.itsw@gmail.com"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -166,9 +192,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:enabled="false"
+                android:paddingTop="4dp"
+                android:paddingBottom="2dp"
                 android:id="@+id/txt_phone"
                 style="@style/textHint"
                 android:hint="+84912383566"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -201,9 +231,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:enabled="false"
+                android:paddingTop="4dp"
+                android:paddingBottom="2dp"
                 android:id="@+id/txt_tiktok"
                 style="@style/textHint"
                 android:hint="thaopx"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -236,9 +270,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:enabled="false"
+                android:paddingTop="4dp"
+                android:paddingBottom="2dp"
                 android:id="@+id/txt_add"
                 style="@style/textHint"
                 android:hint="Ha Noi"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -271,9 +309,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:enabled="false"
+                android:paddingTop="4dp"
+                android:paddingBottom="2dp"
                 android:id="@+id/txt_number"
                 style="@style/textHint"
                 android:hint="Van Canh"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -306,9 +348,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:enabled="false"
+                android:paddingTop="4dp"
+                android:paddingBottom="2dp"
                 android:id="@+id/txt_posstcode"
                 style="@style/textHint"
                 android:hint="84"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -341,9 +387,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:enabled="false"
+                android:paddingTop="4dp"
+                android:paddingBottom="2dp"
                 android:id="@+id/txt_location"
                 style="@style/textHint"
                 android:hint="Ha Noi"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -376,9 +426,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <EditText
+                android:enabled="false"
+                android:paddingTop="4dp"
+                android:paddingBottom="2dp"
                 android:id="@+id/txt_contry"
                 style="@style/textHint"
                 android:hint="VN (Vietnam)"
+                android:background="@null"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>

@@ -5,7 +5,7 @@
     <!-- Đường viền -->
     <stroke
         android:width="1dp"
-        android:color="#EEEEEE" />
+        android:color="@color/black" />
 
     <!-- Bo tròn  -->
     <corners android:radius="6dp" />

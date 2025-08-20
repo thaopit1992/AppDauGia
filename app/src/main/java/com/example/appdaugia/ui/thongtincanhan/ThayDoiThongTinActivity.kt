@@ -1,11 +1,8 @@
 package com.example.appdaugia.ui.thongtincanhan
 
-import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -14,15 +11,15 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.appdaugia.R
-import androidx.core.net.toUri
 import androidx.core.widget.NestedScrollView
+import com.example.appdaugia.R
 import com.example.appdaugia.utils.Utils
-import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
 
-class DangKyActivity : AppCompatActivity() {
+class ThayDoiThongTinActivity : AppCompatActivity() {
+    private lateinit var icBack: ImageView
     private lateinit var btnCheck: ImageView
     private lateinit var txtusertt: EditText
     private lateinit var btnDangKy: Button
@@ -48,17 +45,14 @@ class DangKyActivity : AppCompatActivity() {
     private lateinit var txt_country_recip : EditText
     private lateinit var check_dif : CheckBox
     private lateinit var nestedScrollView: NestedScrollView
-    private lateinit var checkboxDieuKhoan: CheckBox
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dang_ky)
+        setContentView(R.layout.activity_thay_doi_thong_tin)
         nestedScrollView = findViewById(R.id.nestedScrollView)
-
-        // Ẩn ActionBar (nếu có)
         supportActionBar?.hide()
-        // Tìm View trong layout
+
+        icBack = findViewById(R.id.ic_back)
         btnCheck = findViewById(R.id.btnCheck)
         txtusertt = findViewById(R.id.txtuser)
         btnDangKy = findViewById(R.id.btnDangKy)
@@ -73,8 +67,6 @@ class DangKyActivity : AppCompatActivity() {
         txt_phone = findViewById(R.id.txt_phone)
         txt_email = findViewById(R.id.txt_email)
         txt_country = findViewById(R.id.txt_country)
-        txt_pass = findViewById(R.id.txt_pass)
-        txt_re_pass = findViewById(R.id.txt_re_pass)
         ln_recip = findViewById(R.id.ln_recip)
         check_dif = findViewById(R.id.check_dif)
 
@@ -84,7 +76,6 @@ class DangKyActivity : AppCompatActivity() {
         txt_postcode_recip = findViewById(R.id.txt_postcode_recip)
         txt_location_recip = findViewById(R.id.txt_location_recip)
         txt_country_recip = findViewById(R.id.txt_country_recip)
-        checkboxDieuKhoan = findViewById(R.id.checkboxDieuKhoan)
 
         ln_recip.visibility = View.GONE
         check_dif.setOnCheckedChangeListener { _, isChecked ->
@@ -94,6 +85,9 @@ class DangKyActivity : AppCompatActivity() {
                 ln_recip.visibility = View.GONE
             }
         }
+        icBack.setOnClickListener {
+            this.finish()
+        }
 
         btnCheck.setOnClickListener {
             val url = "https://www.tiktok.com/@" + txtusertt.text
@@ -102,17 +96,8 @@ class DangKyActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        btnDangKy.isEnabled = false
-        checkboxDieuKhoan.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                btnDangKy.isEnabled = true
-            } else {
-                btnDangKy.isEnabled = false
-            }
-        }
-
         btnDangKy.setOnClickListener {
-                // check param
+            // check param
             if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_name, "Input your name", this)) return@setOnClickListener
             if (!Utils.ValidationUtils.checkEditTextNotEmpty(txtfirst, "Input your first name", this)) return@setOnClickListener
             if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_street, "Input your street", this)) return@setOnClickListener
@@ -133,13 +118,10 @@ class DangKyActivity : AppCompatActivity() {
                 if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_location_recip, "Input your location", this)) return@setOnClickListener
                 if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_country_recip, "Input your country", this)) return@setOnClickListener
             }
-            if (txt_pass.text != txt_re_pass.text){
-                Toast.makeText(this, "Please confirm your password", Toast.LENGTH_SHORT).show()
-                txt_re_pass.requestFocus()
-            }
 
             Toast.makeText(this, "Test pass", Toast.LENGTH_SHORT).show()
             // call api
         }
+
     }
 }
