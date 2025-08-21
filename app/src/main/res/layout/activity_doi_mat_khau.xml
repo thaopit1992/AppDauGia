@@ -26,7 +26,7 @@
             android:gravity="center"
             android:textSize="18dp"
             android:paddingRight="64dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:text="Change Password"
             android:textAllCaps="true"
             android:layout_width="match_parent"
@@ -41,9 +41,9 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_gravity="center"
-            android:background="@drawable/baseline_lock_24"
-            android:layout_width="28dp"
-            android:layout_height="28dp"/>
+            android:background="@drawable/ic_old_pass"
+            android:layout_width="38dp"
+            android:layout_height="38dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -72,9 +72,9 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_gravity="center"
-            android:background="@drawable/baseline_lock_24"
-            android:layout_width="28dp"
-            android:layout_height="28dp"/>
+            android:background="@drawable/ic_pass_2"
+            android:layout_width="38dp"
+            android:layout_height="38dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -103,9 +103,9 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_gravity="center"
-            android:background="@drawable/baseline_lock_24"
-            android:layout_width="28dp"
-            android:layout_height="28dp"/>
+            android:background="@drawable/ic_pass_2"
+            android:layout_width="38dp"
+            android:layout_height="38dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

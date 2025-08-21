@@ -12,9 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppDauGia">
         <activity
+            android:name=".ui.home.DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.thongtincanhan.ThayDoiThongTinActivity"
             android:exported="false"
-            android:windowSoftInputMode="adjustResize|stateHidden"/>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity
             android:name=".ui.thongtincanhan.DoiMatKhauActivity"
             android:exported="false" />

@@ -9,7 +9,7 @@
 
     <!-- Bo tròn  -->
     <corners android:radius="10dp" />
-    <solid android:color="@color/slategray"/>
+    <solid android:color="@color/white"/>
 
     <!-- Khoảng cách trong -->
     <padding

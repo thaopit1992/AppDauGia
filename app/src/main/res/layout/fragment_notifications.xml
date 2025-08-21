@@ -8,6 +8,7 @@
     android:background="@drawable/background_app"
     android:fitsSystemWindows="true"
     android:paddingTop="32dp"
+    android:paddingBottom="110dp"
     tools:context=".ui.thongtincanhan.ThongTinCaNhanFragment">
 
     <LinearLayout
@@ -28,7 +29,7 @@
             android:layout_gravity="center_vertical"
             android:gravity="center"
             android:textSize="18dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:text="thông tin tài khoản"
             android:textAllCaps="true"
             android:layout_width="0dp"
@@ -39,14 +40,14 @@
             android:id="@+id/btnMore"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@drawable/settings_55dp"
+            android:src="@drawable/settings_35dp_white"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:layout_gravity="end"
             android:contentDescription="More options"/>
     </LinearLayout>
 
     <LinearLayout
-        android:background="@drawable/bg_text_rounded_2"
+        android:background="@drawable/bg_text_rounded_3"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:layout_marginLeft="8dp"
@@ -56,7 +57,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_gravity="center"
-            android:background="@drawable/ic_account_circle_24"
+            android:background="@drawable/ic_user"
             android:layout_width="35dp"
             android:layout_height="35dp"/>
         <LinearLayout
@@ -86,7 +87,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:background="@drawable/bg_text_rounded_2"
+        android:background="@drawable/bg_text_rounded_3"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:layout_marginLeft="8dp"
@@ -97,7 +98,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_gravity="center"
-            android:background="@drawable/baseline_badge_24"
+            android:background="@drawable/ic_idcard"
             android:layout_width="35dp"
             android:layout_height="35dp"/>
         <LinearLayout
@@ -125,7 +126,7 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:background="@drawable/bg_text_rounded_2"
+        android:background="@drawable/bg_text_rounded_3"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:layout_marginLeft="8dp"
@@ -136,7 +137,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_gravity="center"
-            android:background="@drawable/baseline_mark_email_unread_24"
+            android:background="@drawable/ic_email_2"
             android:layout_width="35dp"
             android:layout_height="35dp"/>
         <LinearLayout
@@ -165,7 +166,7 @@
 
     </LinearLayout>
     <LinearLayout
-        android:background="@drawable/bg_text_rounded_2"
+        android:background="@drawable/bg_text_rounded_3"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:layout_marginLeft="8dp"
@@ -176,7 +177,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_gravity="center"
-            android:background="@drawable/baseline_phone_24"
+            android:background="@drawable/ic_phone"
             android:layout_width="35dp"
             android:layout_height="35dp"/>
         <LinearLayout
@@ -204,7 +205,7 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:background="@drawable/bg_text_rounded_2"
+        android:background="@drawable/bg_text_rounded_3"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:layout_marginLeft="8dp"
@@ -215,7 +216,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_gravity="center"
-            android:background="@drawable/baseline_favorite_24"
+            android:background="@drawable/ic_tiktok"
             android:layout_width="35dp"
             android:layout_height="35dp"/>
         <LinearLayout
@@ -243,7 +244,7 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:background="@drawable/bg_text_rounded_2"
+        android:background="@drawable/bg_text_rounded_3"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:layout_marginLeft="8dp"
@@ -254,7 +255,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_gravity="center"
-            android:background="@drawable/baseline_add_home_24"
+            android:background="@drawable/ic_map"
             android:layout_width="35dp"
             android:layout_height="35dp"/>
         <LinearLayout
@@ -282,7 +283,7 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:background="@drawable/bg_text_rounded_2"
+        android:background="@drawable/bg_text_rounded_3"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:layout_marginLeft="8dp"
@@ -293,7 +294,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_gravity="center"
-            android:background="@drawable/baseline_add_home_24"
+            android:background="@drawable/ic_house"
             android:layout_width="35dp"
             android:layout_height="35dp"/>
         <LinearLayout
@@ -321,7 +322,7 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:background="@drawable/bg_text_rounded_2"
+        android:background="@drawable/bg_text_rounded_3"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:layout_marginLeft="8dp"
@@ -332,7 +333,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_gravity="center"
-            android:background="@drawable/baseline_post_add_24"
+            android:background="@drawable/ic_postcode"
             android:layout_width="35dp"
             android:layout_height="35dp"/>
         <LinearLayout
@@ -360,7 +361,7 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:background="@drawable/bg_text_rounded_2"
+        android:background="@drawable/bg_text_rounded_3"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:layout_marginLeft="8dp"
@@ -371,7 +372,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_gravity="center"
-            android:background="@drawable/baseline_add_home_24"
+            android:background="@drawable/ic_location"
             android:layout_width="35dp"
             android:layout_height="35dp"/>
         <LinearLayout
@@ -399,7 +400,7 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:background="@drawable/bg_text_rounded_2"
+        android:background="@drawable/bg_text_rounded_3"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:layout_marginLeft="8dp"
@@ -410,7 +411,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:layout_gravity="center"
-            android:background="@drawable/baseline_add_home_24"
+            android:background="@drawable/ic_country"
             android:layout_width="35dp"
             android:layout_height="35dp"/>
         <LinearLayout
