@@ -3,15 +3,12 @@ package com.example.appdaugia.ui.thongtincanhan
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.example.appdaugia.MainActivity
 import com.example.appdaugia.R
 import com.example.appdaugia.service.viewModel.AuthViewModel
@@ -69,18 +66,15 @@ class DangNhapActivity : AppCompatActivity() {
             this.finish()
         }
 
-        // Init ViewModel
-
         btnLogin.setOnClickListener {
             val username = txt_email.text.toString().trim()
             val password = txt_pass.text.toString().trim()
 
-//            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_email, "Input your email", this)) return@setOnClickListener
-//            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_pass, "Input your pass word", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_email, "Input your email", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_pass, "Input your pass word", this)) return@setOnClickListener
 
             //goi api login
-//            viewModel.login(AppStrings.TOKEN_BASE,username, password)
-            viewModel.login(AppStrings.TOKEN_BASE,"thaopx.itsw@gmail.com", "Xuanthao166")
+            viewModel.login(AppStrings.TOKEN_BASE,username, password)
         }
 
         // xu ly nut back ban phim = icBack
@@ -97,7 +91,6 @@ class DangNhapActivity : AppCompatActivity() {
     }
 
     private fun resLogin(){
-
         viewModel.loginResult.observe(this) { result ->
             result.onSuccess { resp ->
                 val status = resp.status

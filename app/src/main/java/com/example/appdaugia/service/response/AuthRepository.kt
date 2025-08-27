@@ -1,18 +1,41 @@
 package com.example.appdaugia.service.response
 
 import com.example.appdaugia.service.RetrofitClient
+import com.example.appdaugia.service.request.ForgotRequest
 import com.example.appdaugia.service.request.LoginRequest
+import com.example.appdaugia.service.request.RegisterRequest
 
 class AuthRepository {
-    suspend fun login(request: LoginRequest): Result<ApiResponse<LoginResponse>> {
+    suspend fun login(request: LoginRequest): Result<ApiResponse<LoginData>> {
         return try {
-            // Gọi API qua RetrofitClient
             val response = RetrofitClient.api.login(request)
-
-            // Trả về kết quả thành công
             Result.success(response)
         } catch (e: Exception) {
-            // Trả về lỗi nếu API thất bại
+            Result.failure(e)
+        }
+    }
+    suspend fun getUser(token: String?): Result<ApiResponse<LoginData>> {
+        return try {
+            val response = RetrofitClient.api.getUser(token)
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    suspend fun register(request: RegisterRequest): Result<Response> {
+        return try {
+            val response = RetrofitClient.api.createUser(request)
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+    suspend fun forgot(request: ForgotRequest): Result<Response> {
+        return try {
+            val response = RetrofitClient.api.forgot(request)
+            Result.success(response)
+        } catch (e: Exception) {
             Result.failure(e)
         }
     }

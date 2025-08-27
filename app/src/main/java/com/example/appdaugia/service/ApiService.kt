@@ -1,19 +1,27 @@
 package com.example.appdaugia.service
 
+import com.example.appdaugia.service.request.ForgotRequest
 import com.example.appdaugia.service.request.LoginRequest
+import com.example.appdaugia.service.request.RegisterRequest
 import com.example.appdaugia.service.response.ApiResponse
-import com.example.appdaugia.service.response.LoginResponse
+import com.example.appdaugia.service.response.LoginData
+import com.example.appdaugia.service.response.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface ApiService {
 
     @POST("api/users/login")
-    suspend fun login(@Body request: LoginRequest): ApiResponse<LoginResponse>
+    suspend fun login(@Body request: LoginRequest): ApiResponse<LoginData>
 
-//    @GET("users")
-//    fun getUsers(): Call<List<User>>
+    @GET("api/users/information")
+    suspend fun getUser(@Query ("token") token: String?): ApiResponse<LoginData>
 
-//    @POST("users")
-//    fun createUser(@Body user: User): Call<User>
+    @POST("api/users/register")
+    fun createUser(@Body request: RegisterRequest): Response
+
+    @POST("api/users/forgot-password")
+    fun forgot(@Body request: ForgotRequest): Response
 }

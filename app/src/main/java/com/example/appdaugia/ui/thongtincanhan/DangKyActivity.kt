@@ -140,6 +140,7 @@ class DangKyActivity : AppCompatActivity() {
 
             Toast.makeText(this, "Test pass", Toast.LENGTH_SHORT).show()
             // call api
+
         }
     }
 }

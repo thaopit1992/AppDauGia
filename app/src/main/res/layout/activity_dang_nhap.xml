@@ -82,6 +82,7 @@
                     android:id="@+id/txt_email"
                     android:inputType="text"
                     android:singleLine="true"
+                    android:text="thaopx.itsw@gmail.com"
                     android:textColor="@android:color/black"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -116,6 +117,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:id="@+id/txt_pass"
+                android:text="Xuanthao166"
                 android:textColor="@color/black"
                 android:inputType="textPassword"
                 android:singleLine="true" />

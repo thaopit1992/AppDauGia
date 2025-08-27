@@ -16,10 +16,10 @@ class SessionManager(context: Context) {
     }
 
     // Hàm để lưu trạng thái đã đăng nhập và thông tin người dùng
-    fun saveUserSession(userId: Long, userName: String, token : String) {
+    fun saveUserSession(userId: Long?, userName: String?, token: String) {
         editor.putBoolean(IS_LOGGED_IN, true)
         editor.putString(TOKEN, token)
-        editor.putLong(USER_ID, userId)
+        editor.putLong(USER_ID, userId ?:0)
         editor.putString(USER_NAME, userName)
         editor.apply()
     }

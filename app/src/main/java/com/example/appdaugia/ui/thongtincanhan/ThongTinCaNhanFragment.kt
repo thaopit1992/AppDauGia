@@ -2,24 +2,24 @@ package com.example.appdaugia.ui.thongtincanhan
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.ImageButton
-import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import android.view.ContextThemeWrapper
 import android.view.Gravity
 import android.widget.EditText
 import android.widget.PopupWindow
 import com.example.appdaugia.MainActivity
 import com.example.appdaugia.R
+import com.example.appdaugia.service.viewModel.AuthViewModel
+import com.example.appdaugia.utils.LoadingDialog
 import com.example.appdaugia.utils.SessionManager
 
 class ThongTinCaNhanFragment : Fragment() {
@@ -36,7 +36,8 @@ class ThongTinCaNhanFragment : Fragment() {
     private lateinit var txt_contry: EditText
 
     private lateinit var sessionManager: SessionManager
-
+    private var viewModel = AuthViewModel()
+    private lateinit var loadingDialog: LoadingDialog  // custom dialog ở bước trước
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,10 +66,12 @@ class ThongTinCaNhanFragment : Fragment() {
         txt_location = root.findViewById(R.id.txt_location)
         txt_contry = root.findViewById(R.id.txt_contry)
 
+        //call api lay thong tin user
+
         // Tìm View trong layout
         user.setOnClickListener {
-            val intent = Intent(requireContext(), DangNhapActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(requireContext(), DangNhapActivity::class.java)
+//            startActivity(intent)
         }
         btnMore.setOnClickListener {
             showCustomMenu(it)
@@ -76,6 +79,17 @@ class ThongTinCaNhanFragment : Fragment() {
 
         // Khởi tạo SessionManager với Context của Fragment
         sessionManager = SessionManager(requireContext())
+
+        loadingDialog = LoadingDialog(requireContext())
+        // Observe loading
+        viewModel.loading.observe(viewLifecycleOwner) { isLoading ->
+            if (isLoading) loadingDialog.show()
+            else loadingDialog.dismiss()
+        }
+
+        //goi api getuser
+        viewModel.getUser(sessionManager.getToken())
+        resGetUser()
 
         return root
     }
@@ -112,6 +126,31 @@ class ThongTinCaNhanFragment : Fragment() {
              startActivity(intent)
              requireActivity().finish()
             popupWindow.dismiss()
+        }
+    }
+
+    private fun resGetUser(){
+        viewModel.loginResult.observe(viewLifecycleOwner) { result ->
+            result.onSuccess { resp ->
+                val status = resp.status
+                val message = resp.message
+                //  Read data
+                resp.data?.let {
+                    txt_name.setText(resp.data.name ?: "")
+                    id_name.setText(resp.data.id.toString())
+                    txt_email.setText(resp.data.email ?:"")
+                    txt_phone.setText(resp.data.phone ?:"")
+                    txt_tiktok.setText(resp.data.tiktok_username ?:"")
+                    txt_add.setText(resp.data.address?:"")
+                    txt_number.setText(resp.data.house_number?:"")
+                    txt_posstcode.setText(resp.data.postal_code?:"")
+                    txt_location.setText(resp.data.location?:"")
+                    txt_contry.setText(resp.data.country?:"")
+                }
+            }
+            result.onFailure { e ->
+                Toast.makeText(requireContext(), "Get Info failed: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

@@ -59,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Email Address"
                 android:inputType="text"
+                android:text="thaopx.itsw@gmail.com"
                 android:singleLine="true"
                 android:textColor="@android:color/black"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -133,6 +134,23 @@
                     android:textColor="@android:color/black"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_sendok"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:padding="6dp"
+            android:textStyle="italic"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            android:text="We have emailed your password reset link."
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_button_green"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
         <Button
             android:id="@+id/btnSendPass"
