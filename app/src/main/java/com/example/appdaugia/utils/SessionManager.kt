@@ -12,12 +12,14 @@ class SessionManager(context: Context) {
         private const val IS_LOGGED_IN = "isLoggedIn"
         private const val USER_ID = "userId"
         private const val USER_NAME = "userName"
+        private const val TOKEN = "token"
     }
 
     // Hàm để lưu trạng thái đã đăng nhập và thông tin người dùng
-    fun saveUserSession(userId: String, userName: String) {
+    fun saveUserSession(userId: Long, userName: String, token : String) {
         editor.putBoolean(IS_LOGGED_IN, true)
-        editor.putString(USER_ID, userId)
+        editor.putString(TOKEN, token)
+        editor.putLong(USER_ID, userId)
         editor.putString(USER_NAME, userName)
         editor.apply()
     }
@@ -30,6 +32,11 @@ class SessionManager(context: Context) {
     // Hàm để lấy ID người dùng
     fun getUserId(): String? {
         return prefs.getString(USER_ID, null)
+    }
+
+    // Hàm để lấy token người dùng
+    fun getToken(): String? {
+        return prefs.getString(TOKEN, null)
     }
 
     // Hàm để lấy tên người dùng
