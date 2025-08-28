@@ -8,7 +8,7 @@
         android:color="@color/grey200" />
 
     <!-- Bo tròn  -->
-    <corners android:radius="6dp" />
+    <corners android:radius="16dp" />
 
     <!-- Khoảng cách trong -->
     <padding

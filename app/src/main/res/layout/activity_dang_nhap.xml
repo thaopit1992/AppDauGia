@@ -194,17 +194,14 @@
             android:id="@+id/btnDangKy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sing Up"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="16dp"
+            android:text="Sign Up"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:textSize="14sp"
             android:layout_gravity="center"
             android:gravity="center"
             android:fontFamily="@font/manrope_bold"
-            android:textColor="@color/primaryBG"
-            android:layout_marginBottom="8dp"/>
+            android:textColor="@color/primaryBG"/>
     </LinearLayout>
 
 

@@ -18,6 +18,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.appdaugia.R
 import androidx.core.net.toUri
+import androidx.core.view.WindowCompat
 import androidx.core.widget.NestedScrollView
 import com.example.appdaugia.utils.Utils
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
@@ -55,9 +56,9 @@ class DangKyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dang_ky)
         nestedScrollView = findViewById(R.id.nestedScrollView)
-
-        // Ẩn ActionBar (nếu có)
         supportActionBar?.hide()
+        window.statusBarColor = android.graphics.Color.TRANSPARENT
+        WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = true
         // Tìm View trong layout
         btnCheck = findViewById(R.id.btnCheck)
         txtusertt = findViewById(R.id.txtuser)
