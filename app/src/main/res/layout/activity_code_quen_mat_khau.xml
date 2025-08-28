@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".ui.thongtincanhan.QuenMatKhauActivity">
-
+    android:orientation="vertical"
+    tools:context=".ui.thongtincanhan.CodeQuenMatKhauActivity">
     <LinearLayout
         android:paddingTop="30dp"
         android:orientation="horizontal"
@@ -33,12 +33,11 @@
             android:layout_height="match_parent"/>
 
     </LinearLayout>
-
     <TextView
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Forgot Password"
+        android:text="Verification Code"
         android:textColor="@color/black"
         android:fontFamily="@font/manrope_extra_bold"
         android:layout_gravity="center"
@@ -47,59 +46,73 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter your email to receive a verification code."
+        android:text="We have to send the vefification code to your "
+        android:textColor="@color/grey800"
+        android:fontFamily="@font/manrope_regular"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="14sp"/>
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="previously used password."
         android:textColor="@color/grey800"
         android:fontFamily="@font/manrope_regular"
         android:layout_gravity="center"
         android:gravity="center"
         android:textSize="14sp"/>
 
+    <!-- Ô nhập mã -->
     <LinearLayout
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:id="@+id/layout_code"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="32dp"
+        android:gravity="center">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:startIconDrawable="@drawable/ic_email"
-            app:startIconTint="@color/grey500"
-            app:boxCornerRadiusTopStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusBottomEnd="30dp"
-            style="@style/MyTextInputOutlined">
+        <EditText
+            android:id="@+id/et_code1"
+            style="@style/CodeEditText"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email *"
-                android:id="@+id/txt_email"
-                android:inputType="text"
-                android:singleLine="true"
-                android:textSize="14sp"
-                android:fontFamily="@font/manrope_medium"
-                android:text="thaopx.itsw@gmail.com"
-                android:textColor="@android:color/black"/>
-        </com.google.android.material.textfield.TextInputLayout>
+        <EditText
+            android:id="@+id/et_code2"
+            style="@style/CodeEditText"/>
+
+        <EditText
+            android:id="@+id/et_code3"
+            style="@style/CodeEditText"/>
+
+        <EditText
+            android:id="@+id/et_code4"
+            style="@style/CodeEditText"/>
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnQuenMK"
+        android:id="@+id/btn_verify"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continue"
+        android:text="Verify"
         android:layout_marginTop="20dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
         android:padding="8dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textAllCaps="false"
+        android:textAllCaps="true"
         android:background="@drawable/rounded_button"
         android:textColor="@android:color/background_light"
         android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Click to resend code"
+        android:textColor="@color/grey800"
+        android:fontFamily="@font/manrope_regular"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="14sp"/>
+
 </LinearLayout>

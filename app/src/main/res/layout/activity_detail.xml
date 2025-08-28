@@ -121,7 +121,7 @@
                 android:id="@+id/status"
                 android:textSize="15sp"
                 android:text="Processing"
-                android:textColor="@color/purple_200"
+                android:textColor="@color/primaryBG"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -148,7 +148,7 @@
                 android:id="@+id/payment_status"
                 android:textSize="15sp"
                 android:text="Processing"
-                android:textColor="@color/purple_200"
+                android:textColor="@color/primaryBG"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -175,7 +175,7 @@
                 android:id="@+id/payment_sv"
                 android:textSize="15sp"
                 android:text="bank transfer"
-                android:textColor="@color/blue"
+                android:textColor="@color/error300"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -213,7 +213,7 @@
 
     <View
         android:layout_margin="8dp"
-        android:background="@color/blue"
+        android:background="@color/primaryBG"
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
 
@@ -378,7 +378,7 @@
                 android:layout_marginLeft="6dp"
                 android:textSize="15sp"
                 android:text="Frauenstraße 21, 02763 Zittau, Germany "
-                android:textColor="@color/blue"
+                android:textColor="@color/primaryBG"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -401,7 +401,7 @@
                 android:layout_marginLeft="6dp"
                 android:textSize="15sp"
                 android:text="DE45 8505 0100 0004 8201 00"
-                android:textColor="@color/blue"
+                android:textColor="@color/primaryBG"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -424,7 +424,7 @@
                 android:layout_marginLeft="6dp"
                 android:textSize="15sp"
                 android:text="bank transfer"
-                android:textColor="@color/blue"
+                android:textColor="@color/primaryBG"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>

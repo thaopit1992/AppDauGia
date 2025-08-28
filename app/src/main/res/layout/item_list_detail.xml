@@ -91,7 +91,7 @@
                     <TextView
                         android:id="@+id/txt_net"
                         android:textSize="14sp"
-                        android:textColor="@color/blue"
+                        android:textColor="@color/primaryBG"
                         android:text="2200"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -151,7 +151,7 @@
                     android:textStyle="bold"
                     android:id="@+id/txt_gross"
                     android:textSize="14sp"
-                    android:textColor="@color/red"
+                    android:textColor="@color/primaryBG"
                     android:text="3000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>

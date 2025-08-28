@@ -363,7 +363,7 @@
                     android:id="@+id/check_dif"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:buttonTint="@color/blue"
+                    android:buttonTint="@color/primaryBG"
                     />
                 <TextView
                     android:layout_gravity="center"

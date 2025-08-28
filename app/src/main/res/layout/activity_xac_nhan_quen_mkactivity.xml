@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".ui.thongtincanhan.QuenMatKhauActivity">
-
+    tools:context=".ui.thongtincanhan.XacNhanQuenMKActivity">
     <LinearLayout
         android:paddingTop="30dp"
         android:orientation="horizontal"
@@ -31,74 +31,127 @@
             android:textAllCaps="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-
     </LinearLayout>
-
     <TextView
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Forgot Password"
+        android:text="Set New Password"
         android:textColor="@color/black"
         android:fontFamily="@font/manrope_extra_bold"
         android:layout_gravity="center"
         android:gravity="center"
         android:textSize="18sp"/>
     <TextView
+        android:layout_marginTop="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter your email to receive a verification code."
+        android:text="Your new password must me different to"
         android:textColor="@color/grey800"
         android:fontFamily="@font/manrope_regular"
         android:layout_gravity="center"
         android:gravity="center"
         android:textSize="14sp"/>
-
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="previously used password."
+        android:textColor="@color/grey800"
+        android:fontFamily="@font/manrope_regular"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="14sp"/>
     <LinearLayout
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
+        <!-- Password -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:startIconDrawable="@drawable/ic_email"
+            style="@style/MyTextInputOutlined"
+            android:textColor="@android:color/black"
+            app:startIconDrawable="@drawable/ic_lock"
             app:startIconTint="@color/grey500"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/grey500"
             app:boxCornerRadiusTopStart="30dp"
             app:boxCornerRadiusTopEnd="30dp"
             app:boxCornerRadiusBottomStart="30dp"
             app:boxCornerRadiusBottomEnd="30dp"
-            style="@style/MyTextInputOutlined">
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email *"
-                android:id="@+id/txt_email"
-                android:inputType="text"
-                android:singleLine="true"
-                android:textSize="14sp"
+                android:hint="New Password *"
+                android:id="@+id/txt_re_pass"
+                tools:text="Xuanthao166"
+                android:textColor="@color/black"
+                android:inputType="textPassword"
                 android:fontFamily="@font/manrope_medium"
-                android:text="thaopx.itsw@gmail.com"
-                android:textColor="@android:color/black"/>
+                android:textSize="14sp"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <!-- Password -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            style="@style/MyTextInputOutlined"
+            android:textColor="@android:color/black"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/grey500"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/grey500"
+            app:boxCornerRadiusTopStart="30dp"
+            app:boxCornerRadiusTopEnd="30dp"
+            app:boxCornerRadiusBottomStart="30dp"
+            app:boxCornerRadiusBottomEnd="30dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirm New Password *"
+                android:id="@+id/txt_pass"
+                android:text="Xuanthao166"
+                android:textColor="@color/black"
+                android:inputType="textPassword"
+                android:fontFamily="@font/manrope_medium"
+                android:textSize="14sp"
+                android:singleLine="true" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnQuenMK"
+        android:id="@+id/btn_reset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continue"
+        android:text="Reset Password"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:padding="8dp"
         android:layout_gravity="center"
         android:gravity="center"
         android:textAllCaps="false"
+        android:fontFamily="@font/manrope_bold"
         android:background="@drawable/rounded_button"
         android:textColor="@android:color/background_light"
         android:layout_marginBottom="16dp"/>

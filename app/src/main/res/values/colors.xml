@@ -5,19 +5,71 @@
     <color name="purple_700">#770000</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+
+    // Base
+    <color name="white">#FFFFFFFF</color> 
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="grey">#EEEEEE</color>
-    <color name="blue">#0000FF</color>
-    <color name="red">#FF0000</color>
-    <color name="gray">#97FFFF</color>
-    <color name="slategray">#E6E6FA</color>
-    <color name="gray61">#9C9C9C</color>
-    <color name="salmon">#FA8072</color>
-    <color name="wheat">#F5DEB3</color>
-    <color name="pink">#FFC0CB</color>
-    <color name="thistle">#FFE1FF</color>
-    <color name="MediumPurple">#AB82FF</color>
-    <color name="Brown1">#FF4040</color>
-    <color name="green">#00CC00</color>
+
+    <color name="text1">#FF1A1C1E</color>
+    <color name="text2">#FF6C7278</color>
+    <color name="warning100">#FFFEF0C7</color>
+    <color name="white1">#FFFAFAFA</color>
+    <color name="black1">#FF333334</color>
+
+    <color name="primaryBG">#FF16A800</color>
+    <color name="primary0">#FFD9EDD2</color>
+    <color name="primary1">#FFF4FAED</color>
+    <color name="primary2">#FFEBF7DF</color>
+    <color name="primary3">#FFCAEBB0</color>
+    <color name="primary4">#FFA7DB84</color>
+    <color name="primary5">#FF5EC23A</color>
+    <color name="primary7">#FF149600</color>
+    <color name="primary8">#FF0F7D00</color>
+    <color name="primary9">#FF0A6600</color>
+    <color name="primary10">#FF084D00</color>
+    <color name="primary11">#FF043000</color>
+    <color name="primary200">#FFD6D9E5</color>
+    <color name="primary300">#FFF7FBF6</color>
+
+    <color name="greyBg">#FFF2F4F1</color>
+    <color name="catSelectionColor">#FFFFF9EA</color>
+    <color name="borderColor">#FFEAEAEA</color>
+
+    // Stroke Scale
+    <color name="stroke50">#FFF6F8F9</color>
+    <color name="stroke100">#FFECF0F2</color>
+    <color name="stroke200">#FFDCE4E8</color>
+    <color name="stroke300">#FFAFC1CA</color>
+    <color name="stroke400">#FF83A0AD</color>
+    <color name="stroke500">#FF638594</color>
+    <color name="stroke600">#FF4F6B7A</color>
+    <color name="stroke700">#FF4F6B7A</color>
+    <color name="stroke800">#FF384A54</color>
+    <color name="stroke900">#FF324048</color>
+
+    <color name="grey50">#FFF9FAFB</color>
+    <color name="grey100">#FFF3F4F6</color>
+    <color name="grey200">#FFEEEFF2</color>
+    <color name="grey300">#FFD1D5DB</color>
+    <color name="grey400">#FF9CA3AF</color>
+    <color name="grey500">#FF6B7280</color>
+    <color name="grey600">#FF4B5563</color>
+    <color name="grey700">#FF374151</color>
+    <color name="grey800">#FF1F2937</color>
+    <color name="grey900">#FF111827</color>
+    <color name="grey1">#FF2F2F30</color>
+    <color name="natural700">#FF2D3C5C</color>
+
+    <color name="error50">#FFFFEBEE</color>
+    <color name="error100">#FFFFCDD2</color>
+    <color name="error200">#FFEF9A9A</color>
+    <color name="error300">#FFE57373</color>
+    <color name="error400">#FFEF5350</color>
+    <color name="error500">#FFF44336</color>
+    <color name="error600">#FFE53935</color>
+    <color name="error700">#FFD32F2F</color>
+    <color name="error800">#FFC62828</color>
+    <color name="error900">#FFB71C1C</color>
+
+    <color name="red600">#FFC54B29</color>
 </resources>

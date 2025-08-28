@@ -163,7 +163,7 @@
                         android:background="@drawable/bg_text_rounded_4"
                         android:textStyle="bold"
                         android:textSize="12sp"
-                        android:textColor="@color/purple_200"
+                        android:textColor="@color/primaryBG"
                         android:text="Processing"
                         android:layout_gravity="right"
                         android:gravity="center"

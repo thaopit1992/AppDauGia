@@ -1,7 +1,7 @@
 package com.example.appdaugia.service.response
 
-data class Response(
+data class BaseResponse(
     val status: Int,
-    val code: String,
+    val code: String?,
     val message: String,
 )

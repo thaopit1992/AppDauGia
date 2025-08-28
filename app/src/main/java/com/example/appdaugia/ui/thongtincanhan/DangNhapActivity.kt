@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import com.example.appdaugia.MainActivity
 import com.example.appdaugia.R
 import com.example.appdaugia.service.viewModel.AuthViewModel
@@ -19,7 +20,7 @@ import com.example.appdaugia.utils.Utils
 import com.google.android.material.textfield.TextInputEditText
 
 class DangNhapActivity : AppCompatActivity() {
-    private lateinit var btnDangKy: Button
+    private lateinit var btnDangKy: TextView
     private lateinit var icBack: ImageView
     private lateinit var tvForgot: TextView
     private lateinit var btnLogin: Button
@@ -36,6 +37,9 @@ class DangNhapActivity : AppCompatActivity() {
         setContentView(R.layout.activity_dang_nhap)
         // Ẩn ActionBar (nếu có)
         supportActionBar?.hide()
+        window.statusBarColor = android.graphics.Color.TRANSPARENT
+        WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = true
+
         sessionManager = SessionManager(this)
         // Tìm View trong layout
         btnDangKy = findViewById(R.id.btnDangKy)
