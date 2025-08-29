@@ -1,16 +1,18 @@
-package com.example.appdaugia.service.response
+package com.example.appdaugia.service.repository
 
 import com.example.appdaugia.service.RetrofitClient
-import com.example.appdaugia.service.RetrofitClient.api
 import com.example.appdaugia.service.request.ForgotRequest
 import com.example.appdaugia.service.request.LoginRequest
 import com.example.appdaugia.service.request.RegisterRequest
+import com.example.appdaugia.service.response.ApiResponse
+import com.example.appdaugia.service.response.BaseResponse
+import com.example.appdaugia.service.response.LoginData
 import com.google.gson.Gson
 
 class AuthRepository {
     suspend fun login(request: LoginRequest): Result<ApiResponse<LoginData>> {
         return try {
-            val response = api.login(request)
+            val response = RetrofitClient.api.login(request)
             Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)
@@ -18,7 +20,7 @@ class AuthRepository {
     }
     suspend fun getUser(token: String?): Result<ApiResponse<LoginData>> {
         return try {
-            val response = api.getUser(token)
+            val response = RetrofitClient.api.getUser(token)
             Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)
@@ -27,7 +29,7 @@ class AuthRepository {
 
     suspend fun register(request: RegisterRequest): Result<BaseResponse>  {
         return try {
-            val response = api.register(request)
+            val response = RetrofitClient.api.register(request)
 
             if (response.isSuccessful) {
                 response.body()?.let {
@@ -54,7 +56,7 @@ class AuthRepository {
 
     suspend fun forgot(request: ForgotRequest): Result<BaseResponse> {
         return try {
-            val response = api.forgot(request)
+            val response = RetrofitClient.api.forgot(request)
             Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)

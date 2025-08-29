@@ -8,7 +8,7 @@
         android:color="@color/grey100" />
 
     <!-- Bo tròn  -->
-    <corners android:radius="10dp" />
+    <corners android:radius="12dp" />
     <solid android:color="@color/grey100"/>
 
     <!-- Khoảng cách trong -->

@@ -13,14 +13,20 @@ class SessionManager(context: Context) {
         private const val USER_ID = "userId"
         private const val USER_NAME = "userName"
         private const val TOKEN = "token"
+        private const val EMAIL = "email"
+        private const val TIKTOK = "tiktok"
+        private const val PHONE = "phone"
     }
 
     // Hàm để lưu trạng thái đã đăng nhập và thông tin người dùng
-    fun saveUserSession(userId: Long?, userName: String?, token: String?) {
+    fun saveUserSession(userId: Long?, userName: String?, token: String?, email :String?, tiktok :String?, phone:String?) {
         editor.putBoolean(IS_LOGGED_IN, true)
         editor.putString(TOKEN, token)
         editor.putLong(USER_ID, userId ?:0)
         editor.putString(USER_NAME, userName)
+        editor.putString(EMAIL, email)
+        editor.putString(TIKTOK, tiktok)
+        editor.putString(PHONE, phone)
         editor.apply()
     }
 
@@ -42,6 +48,15 @@ class SessionManager(context: Context) {
     // Hàm để lấy tên người dùng
     fun getUserName(): String? {
         return prefs.getString(USER_NAME, null)
+    }
+    fun getEmail(): String? {
+        return prefs.getString(EMAIL, null)
+    }
+    fun getPhone(): String? {
+        return prefs.getString(PHONE, null)
+    }
+    fun getTikTok(): String? {
+        return prefs.getString(TIKTOK, null)
     }
 
     // Hàm để xóa session (đăng xuất)

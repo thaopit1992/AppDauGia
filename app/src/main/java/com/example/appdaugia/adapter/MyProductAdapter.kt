@@ -3,20 +3,19 @@ package com.example.appdaugia.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appdaugia.R
-import com.example.appdaugia.data.Product
+import com.example.appdaugia.data.Item
 
-class MyProductAdapter(private val items: List<Product>,
-                       private val onItemClick: (Product) -> Unit) : RecyclerView.Adapter<MyProductAdapter.MyViewHolder>()
+class MyProductAdapter(private val items: List<Item>,
+                       private val onItemClick: (Item) -> Unit) : RecyclerView.Adapter<MyProductAdapter.MyViewHolder>()
 {
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txt_name: TextView = view.findViewById(R.id.txt_name)
         val txt_price: TextView = view.findViewById(R.id.txt_price)
         val txt_quantity: TextView = view.findViewById(R.id.txt_quantity)
-        val txt_net: TextView = view.findViewById(R.id.txt_net)
+        val txt_total_net: TextView = view.findViewById(R.id.txt_total_net)
         val txt_vat: TextView = view.findViewById(R.id.txt_vat)
         val txt_gross: TextView = view.findViewById(R.id.txt_gross)
     }
@@ -29,12 +28,12 @@ class MyProductAdapter(private val items: List<Product>,
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val item = items[position]
-        holder.txt_name.text = item.name
-        holder.txt_price.text = item.price
+        holder.txt_name.text = item.product.name
+        holder.txt_price.text = item.product_price_net
         holder.txt_quantity.text = item.quantity
-        holder.txt_net.text = item.net
+        holder.txt_total_net.text = item.product_price_net
         holder.txt_vat.text = item.vat
-        holder.txt_gross.text = item.gross
+        holder.txt_gross.text = item.total_price
 
         // Thiết lập sự kiện click
         holder.itemView.setOnClickListener {

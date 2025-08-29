@@ -39,12 +39,9 @@ class MainActivity : AppCompatActivity() {
             supportActionBar?.hide()
 
         // Full màn hình
-        // Cho phép layout tràn dưới status bar/navigation bar
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        // Nếu muốn status bar trong suốt
+        supportActionBar?.hide()
         window.statusBarColor = Color.TRANSPARENT
-        window.navigationBarColor = Color.TRANSPARENT
-
+        WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = true
         setupNavigation()
     }
 

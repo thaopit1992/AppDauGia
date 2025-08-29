@@ -1,11 +1,14 @@
 package com.example.appdaugia.service
 
+import com.example.appdaugia.data.OrderData
 import com.example.appdaugia.service.request.ForgotRequest
 import com.example.appdaugia.service.request.LoginRequest
 import com.example.appdaugia.service.request.RegisterRequest
 import com.example.appdaugia.service.response.ApiResponse
 import com.example.appdaugia.service.response.BaseResponse
+import com.example.appdaugia.service.response.DetailOrderResponse
 import com.example.appdaugia.service.response.LoginData
+import com.example.appdaugia.service.response.OrderResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -29,4 +32,12 @@ interface ApiService {
     @Headers("Accept: application/json")
     @POST("api/users/forgot-password")
     suspend fun forgot(@Body request: ForgotRequest): BaseResponse
+
+    @Headers("Accept: application/json")
+    @GET("/api/shop/my/order")
+    suspend fun getListOrder(@Query ("token") token: String?): Response<OrderResponse>
+
+    @Headers("Accept: application/json")
+    @GET("api/shop/my/order/detail")
+    suspend fun getDetail(@Query ("token") token: String?, @Query ("id_encode") id_encode: Long? ): Response<DetailOrderResponse>
 }

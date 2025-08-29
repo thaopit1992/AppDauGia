@@ -6,23 +6,39 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.appdaugia.MainActivity
 import com.example.appdaugia.R
 import com.example.appdaugia.adapter.MyOrderAdapter
-import com.example.appdaugia.data.ListItem
-import com.example.appdaugia.databinding.FragmentHomeBinding
+import com.example.appdaugia.data.OrderData
+import com.example.appdaugia.service.viewModel.AuthViewModel
+import com.example.appdaugia.service.viewModel.OrderViewModel
+import com.example.appdaugia.utils.AppStrings
+import com.example.appdaugia.utils.LoadingDialog
+import com.example.appdaugia.utils.SessionManager
 import java.util.Calendar
 
 class HomeFragment : Fragment() {
 
     private lateinit var recycler_view: RecyclerView
     private lateinit var time: TextView
+    private lateinit var tv_name: TextView
+    private lateinit var tv_phone: TextView
+    private lateinit var tv_tiktok_us: TextView
+    private lateinit var tv_view: TextView
+    private lateinit var tv_email: TextView
+
+    private lateinit var sessionManager: SessionManager
+    private val viewModel = OrderViewModel()
+
+    private lateinit var loadingDialog: LoadingDialog
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,6 +56,19 @@ class HomeFragment : Fragment() {
 
         recycler_view = root.findViewById(R.id.recycler_view)
         time = root.findViewById(R.id.time)
+        tv_name = root.findViewById(R.id.tv_name)
+        tv_tiktok_us = root.findViewById(R.id.tv_tiktok_us)
+        tv_phone = root.findViewById(R.id.tv_phone)
+        tv_view = root.findViewById(R.id.tv_view)
+        tv_email = root.findViewById(R.id.tv_email)
+
+        sessionManager = SessionManager(requireContext())
+        loadingDialog = LoadingDialog(requireContext())
+        // Observe loading
+        viewModel.loading.observe(viewLifecycleOwner) { isLoading ->
+            if (isLoading) loadingDialog.show()
+            else loadingDialog.dismiss()
+        }
 
         // chao hoi
         // Lấy đối tượng lịch
@@ -52,30 +81,42 @@ class HomeFragment : Fragment() {
             else -> "Good night!"
         }
         time.text = greeting
+        tv_name.text = sessionManager.getUserName()
+        tv_tiktok_us.text = sessionManager.getTikTok()
+        tv_email.text = sessionManager.getEmail()
+        tv_phone.text = sessionManager.getPhone()
 
-        // Tạo dữ liệu mẫu
-        val items = listOf(
-            ListItem("1523269983.12", "2025-08-19", "2","1.779,41","Processing"),
-            ListItem("1523269983.12", "2025-08-19", "2","1.779,41","Processing"),
-            ListItem("1523269983.12", "2025-08-19", "2","1.779,41","Processing"),
-            ListItem("1523269983.12", "2025-08-19", "2","1.779,41","Processing"),
-            ListItem("1523269983.12", "2025-08-19", "2","1.779,41","Processing"),
-            ListItem("1523269983.12", "2025-08-19", "2","1.779,41","Processing"),
-            // Thêm nhiều item khác tại đây
-        )
+        //goi api login
+        viewModel.getListOrder(sessionManager.getToken())
 
         recycler_view.layoutManager = LinearLayoutManager(requireContext())
-
-        // Khởi tạo Adapter và thiết lập sự kiện click
-        val adapter = MyOrderAdapter(items) { item ->
-            // Chuyển sang màn hình mới và truyền dữ liệu
-            val intent = Intent(requireContext(), DetailActivity::class.java).apply {
-                putExtra("Item", item)
-            }
-            startActivity(intent)
-        }
-        recycler_view.adapter = adapter
+        resListOrder()
 
         return root
+    }
+
+    private fun resListOrder(){
+        viewModel.result.observe(viewLifecycleOwner) { result ->
+            result.onSuccess { resp ->
+                val status = resp.status
+                if(status == 1) {
+
+                    resp.data?.let { list ->
+                        tv_view.text = list.size.toString()
+
+                        val adapter = MyOrderAdapter(list) { item ->
+                            val intent = Intent(requireContext(), DetailActivity::class.java).apply {
+                                putExtra("Item", item)
+                            }
+                            startActivity(intent)
+                        }
+                        recycler_view.adapter = adapter
+                    }
+                } else  Toast.makeText(requireContext(), "Failed: " + resp.message, Toast.LENGTH_SHORT).show()
+            }
+            result.onFailure { e ->
+                Toast.makeText(requireContext(), "Failed: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }

@@ -100,7 +100,9 @@ class DangNhapActivity : AppCompatActivity() {
                 val status = resp.status
                 val message = resp.message
                 // Lưu session
-                resp.data?.let { sessionManager.saveUserSession(resp.data.id, resp.data.name, resp.token ) }
+                resp.data?.let { sessionManager.saveUserSession(resp.data.id, resp.data.name, resp.token ,
+                    resp.data.email, resp.data.tiktok_username, resp.data.phone
+                    ) }
                 // Chuyển sang màn hình chính
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()

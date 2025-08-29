@@ -9,7 +9,7 @@ import com.example.appdaugia.service.request.ForgotRequest
 import com.example.appdaugia.service.request.LoginRequest
 import com.example.appdaugia.service.request.RegisterRequest
 import com.example.appdaugia.service.response.ApiResponse
-import com.example.appdaugia.service.response.AuthRepository
+import com.example.appdaugia.service.repository.AuthRepository
 import com.example.appdaugia.service.response.BaseResponse
 import com.example.appdaugia.service.response.LoginData
 
