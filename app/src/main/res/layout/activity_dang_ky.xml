@@ -118,7 +118,10 @@
                         android:singleLine="true"
                         android:textSize="14sp"
                         android:fontFamily="@font/manrope_medium"
-                        
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:textColor="@android:color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -150,7 +153,10 @@
                         android:singleLine="true"
                         android:textSize="14sp"
                         android:fontFamily="@font/manrope_medium"
-                        
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:textColor="@android:color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -182,7 +188,10 @@
                         android:singleLine="true"
                         android:textSize="14sp"
                         android:fontFamily="@font/manrope_medium"
-                        
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:textColor="@android:color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -214,7 +223,10 @@
                         android:singleLine="true"
                         android:textSize="14sp"
                         android:fontFamily="@font/manrope_medium"
-                        
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:textColor="@android:color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -255,13 +267,16 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Street"
+                        android:hint="Street *"
                         android:id="@+id/txt_street"
                         android:inputType="text"
                         android:singleLine="true"
                         android:textSize="14sp"
                         android:fontFamily="@font/manrope_medium"
-                        
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:textColor="@android:color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -287,13 +302,16 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="House number"
+                        android:hint="House number *"
                         android:id="@+id/txt_number"
                         android:inputType="text"
                         android:singleLine="true"
                         android:textSize="14sp"
                         android:fontFamily="@font/manrope_medium"
-                        
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:textColor="@android:color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -319,13 +337,16 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Postal code"
+                        android:hint="Postal code *"
                         android:id="@+id/txt_poscode"
                         android:inputType="text"
                         android:singleLine="true"
                         android:textSize="14sp"
                         android:fontFamily="@font/manrope_medium"
-                        
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:textColor="@android:color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -351,13 +372,16 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="City"
+                        android:hint="City *"
                         android:id="@+id/txt_location"
                         android:inputType="text"
                         android:singleLine="true"
                         android:textSize="14sp"
                         android:fontFamily="@font/manrope_medium"
-                        
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:textColor="@android:color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -383,13 +407,16 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Country"
+                        android:hint="Country *"
                         android:id="@+id/txt_country"
                         android:inputType="text"
                         android:singleLine="true"
                         android:textSize="14sp"
                         android:fontFamily="@font/manrope_medium"
-                        
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:textColor="@android:color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -442,13 +469,16 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Fullname Recipient"
+                            android:hint="Fullname Recipient *"
                             android:id="@+id/txt_fullname_recip"
                             android:inputType="text"
                             android:singleLine="true"
                             android:textSize="14sp"
                             android:fontFamily="@font/manrope_medium"
-                            
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
                             android:textColor="@android:color/black"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
@@ -474,13 +504,16 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Street"
+                            android:hint="Street *"
                             android:id="@+id/txt_street_recip"
                             android:inputType="text"
                             android:singleLine="true"
                             android:textSize="14sp"
                             android:fontFamily="@font/manrope_medium"
-                            
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
                             android:textColor="@android:color/black"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
@@ -506,13 +539,16 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="House number"
+                            android:hint="House number *"
                             android:id="@+id/txt_house_recip"
                             android:inputType="text"
                             android:singleLine="true"
                             android:textSize="14sp"
                             android:fontFamily="@font/manrope_medium"
-                            
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
                             android:textColor="@android:color/black"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
@@ -538,13 +574,16 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Postal code"
+                            android:hint="Postal code *"
                             android:id="@+id/txt_postcode_recip"
                             android:inputType="text"
                             android:singleLine="true"
                             android:textSize="14sp"
                             android:fontFamily="@font/manrope_medium"
-                            
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
                             android:textColor="@android:color/black"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
@@ -570,11 +609,15 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="City"
+                            android:hint="City *"
                             android:id="@+id/txt_location_recip"
                             android:inputType="text"
                             android:singleLine="true"
                             android:textSize="14sp"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
                             android:fontFamily="@font/manrope_medium"
                             android:textColor="@android:color/black"/>
                     </com.google.android.material.textfield.TextInputLayout>
@@ -601,13 +644,16 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Country"
+                            android:hint="Country *"
                             android:id="@+id/txt_country_recip"
                             android:inputType="text"
                             android:singleLine="true"
                             android:textSize="14sp"
                             android:fontFamily="@font/manrope_medium"
-                            
+                            android:paddingStart="16dp"
+                            android:paddingEnd="16dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp"
                             android:textColor="@android:color/black"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
@@ -652,13 +698,16 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Telephone"
+                        android:hint="Telephone *"
                         android:id="@+id/txt_phone"
-                        android:inputType="text"
+                        android:inputType="number"
                         android:singleLine="true"
                         android:textSize="14sp"
                         android:fontFamily="@font/manrope_medium"
-                        
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:textColor="@android:color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -674,7 +723,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:startIconDrawable="@drawable/ic_email"
                     app:startIconTint="@color/grey500"
                     app:boxCornerRadiusTopStart="30dp"
                     app:boxCornerRadiusTopEnd="30dp"
@@ -685,13 +733,16 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Email"
+                        android:hint="Email *"
                         android:id="@+id/txt_email"
                         android:inputType="text"
                         android:singleLine="true"
                         android:textSize="14sp"
                         android:fontFamily="@font/manrope_medium"
-                        
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:textColor="@android:color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
@@ -705,7 +756,7 @@
                 android:fontFamily="@font/manrope_regular"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:textSize="14sp"/>
+                android:textSize="12sp"/>
 
             <LinearLayout
                 android:layout_marginTop="10dp"
@@ -718,8 +769,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:startIconDrawable="@drawable/ic_lock"
                     app:startIconTint="@color/grey500"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="@color/grey500"
                     app:boxCornerRadiusTopStart="30dp"
                     app:boxCornerRadiusTopEnd="30dp"
                     app:boxCornerRadiusBottomStart="30dp"
@@ -729,11 +781,15 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Password"
+                        android:hint="Password *"
                         android:id="@+id/txt_pass"
-                        android:inputType="text"
+                        android:inputType="textPassword"
                         android:singleLine="true"
                         android:textSize="14sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:fontFamily="@font/manrope_medium"
                         android:textColor="@android:color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -750,8 +806,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    app:startIconDrawable="@drawable/ic_lock"
                     app:startIconTint="@color/grey500"
+                    app:endIconMode="password_toggle"
+                    app:endIconTint="@color/grey500"
                     app:boxCornerRadiusTopStart="30dp"
                     app:boxCornerRadiusTopEnd="30dp"
                     app:boxCornerRadiusBottomStart="30dp"
@@ -761,17 +818,21 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Confirm Password"
+                        android:hint="Confirm Password *"
                         android:id="@+id/txt_re_pass"
-                        android:inputType="text"
+                        android:inputType="textPassword"
                         android:singleLine="true"
                         android:textSize="14sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
                         android:fontFamily="@font/manrope_medium"
                         android:textColor="@android:color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="12dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -847,7 +908,7 @@
                     android:fontFamily="@font/manrope_regular"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:textSize="14sp"/>
+                    android:textSize="12sp"/>
                 <TextView
                     android:text=" *"
                     android:textColor="@android:color/holo_red_dark"

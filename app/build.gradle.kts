@@ -53,6 +53,7 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.core)
+    implementation(libs.ccp)
 
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)

@@ -2,6 +2,7 @@ package com.example.appdaugia.ui.thongtincanhan
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -13,6 +14,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -20,8 +22,15 @@ import com.example.appdaugia.R
 import androidx.core.net.toUri
 import androidx.core.view.WindowCompat
 import androidx.core.widget.NestedScrollView
+import com.example.appdaugia.MainActivity
+import com.example.appdaugia.service.request.ForgotRequest
+import com.example.appdaugia.service.request.RegisterRequest
+import com.example.appdaugia.service.viewModel.AuthViewModel
+import com.example.appdaugia.utils.AppStrings
+import com.example.appdaugia.utils.LoadingDialog
 import com.example.appdaugia.utils.Utils
 import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent
+import kotlin.toString
 
 class DangKyActivity : AppCompatActivity() {
     private lateinit var btnCheck: ImageView
@@ -50,14 +59,15 @@ class DangKyActivity : AppCompatActivity() {
     private lateinit var check_dif : CheckBox
     private lateinit var nestedScrollView: NestedScrollView
     private lateinit var checkboxDieuKhoan: CheckBox
-
+    private val viewModel = AuthViewModel()
+    private lateinit var loadingDialog: LoadingDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dang_ky)
         nestedScrollView = findViewById(R.id.nestedScrollView)
         supportActionBar?.hide()
-        window.statusBarColor = android.graphics.Color.TRANSPARENT
+        window.statusBarColor = Color.TRANSPARENT
         WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = true
         // Tìm View trong layout
         btnCheck = findViewById(R.id.btnCheck)
@@ -86,6 +96,13 @@ class DangKyActivity : AppCompatActivity() {
         txt_location_recip = findViewById(R.id.txt_location_recip)
         txt_country_recip = findViewById(R.id.txt_country_recip)
         checkboxDieuKhoan = findViewById(R.id.checkboxDieuKhoan)
+
+        loadingDialog = LoadingDialog(this)
+        // Observe loading
+        viewModel.loading.observe(this) { isLoading ->
+            if (isLoading) loadingDialog.show()
+            else loadingDialog.dismiss()
+        }
 
         ln_recip.visibility = View.GONE
         check_dif.setOnCheckedChangeListener { _, isChecked ->
@@ -126,22 +143,72 @@ class DangKyActivity : AppCompatActivity() {
             if (!Utils.ValidationUtils.checkEditTextNotEmpty(txtusertt, "Input your tiktok username", this)) return@setOnClickListener
             if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_pass, "Input your password", this)) return@setOnClickListener
             if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_re_pass, "Input your confirm password", this)) return@setOnClickListener
-            if(check_dif.isChecked){
-                if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_fullname_recip, "Input your fullname recipient", this)) return@setOnClickListener
-                if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_street_recip, "Input your street", this)) return@setOnClickListener
-                if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_house_recip, "Input your house number", this)) return@setOnClickListener
-                if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_postcode_recip, "Input your postal code", this)) return@setOnClickListener
-                if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_location_recip, "Input your location", this)) return@setOnClickListener
-                if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_country_recip, "Input your country", this)) return@setOnClickListener
-            }
-            if (txt_pass.text != txt_re_pass.text){
+
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_fullname_recip, "Input your fullname recipient", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_street_recip, "Input your street", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_house_recip, "Input your house number", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_postcode_recip, "Input your postal code", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_location_recip, "Input your location", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_country_recip, "Input your country", this)) return@setOnClickListener
+
+            if (!txt_pass.text.toString().trim().equals(txt_re_pass.text.toString().trim(), ignoreCase = false)) {
                 Toast.makeText(this, "Please confirm your password", Toast.LENGTH_SHORT).show()
                 txt_re_pass.requestFocus()
+                return@setOnClickListener
             }
 
-            Toast.makeText(this, "Test pass", Toast.LENGTH_SHORT).show()
             // call api
+            val request = RegisterRequest(
+                token = AppStrings.TOKEN_BASE,
+                name = txt_name.text.toString().trim(),
+                email = txt_email.text.toString().trim(),
+                password = txt_pass.text.toString().trim(),
+                password_confirmation = txt_re_pass.text.toString().trim(),
 
+                first_name = txt_name.text.toString().trim(),
+                phone = txt_phone.text.toString().trim(),
+                country = txt_country.text.toString().trim(),
+                location = txt_location.text.toString().trim(),
+                address = txt_street.text.toString().trim(),
+                house_number = txt_number.text.toString().trim(),
+                postal_code = txt_poscode.text.toString().trim(),
+                tiktok_username = txtusertt.text.toString().trim(),
+                vat_id = txt_vat_id.text.toString().trim(),
+                company = txt_company.text.toString().trim(),
+
+                shipping_fullname = txt_fullname_recip.text.toString().trim(),
+                shipping_house_number = txt_house_recip.text.toString().trim(),
+                shipping_address = txt_street_recip.text.toString().trim(),
+                shipping_postal_code = txt_postcode_recip.text.toString().trim(),
+                shipping_location = txt_location_recip.text.toString().trim(),
+                shipping_country = txt_country_recip.text.toString().trim(),
+                shipping_to = if (check_dif.isChecked) 1 else 0
+            )
+            viewModel.register(request)
+        }
+
+        resRegister()
+    }
+    private fun resRegister(){
+        viewModel.baseResult.observe(this) { result ->
+            result.onSuccess { response ->
+                if (response.status == 1) {
+                    // 👉 Đăng ký thành công
+                    AlertDialog.Builder(this)
+                        .setMessage(response.message)
+                        .setPositiveButton("OK", null)
+                        .show()
+                    finish()
+                }
+            }
+        }
+        viewModel.errorMessage.observe(this) { msg ->
+            if (!msg.isNullOrEmpty()) {
+                AlertDialog.Builder(this)
+                    .setMessage(msg)
+                    .setPositiveButton("OK", null)
+                    .show()
+            }
         }
     }
 }
