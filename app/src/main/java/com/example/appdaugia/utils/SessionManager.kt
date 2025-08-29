@@ -58,6 +58,10 @@ class SessionManager(context: Context) {
     fun getTikTok(): String? {
         return prefs.getString(TIKTOK, null)
     }
+    fun updateToken(token: String?) {
+        editor.putString(TOKEN, token)
+        editor.apply()
+    }
 
     // Hàm để xóa session (đăng xuất)
     fun logout() {

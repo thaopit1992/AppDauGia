@@ -39,7 +39,7 @@
     </style>
 
     <style name="CustomPopupMenu" parent="Widget.Material3.PopupMenu">
-        <item name="android:popupBackground">@drawable/bg_popup_menu</item>
+        <item name="android:popupBackground">@drawable/background_app_3</item>
         <item name="android:textColor">@color/black</item>
     </style>
 

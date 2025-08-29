@@ -1,6 +1,7 @@
 package com.example.appdaugia.service
 
 import com.example.appdaugia.data.OrderData
+import com.example.appdaugia.service.request.ChangePassRequest
 import com.example.appdaugia.service.request.ForgotRequest
 import com.example.appdaugia.service.request.LoginRequest
 import com.example.appdaugia.service.request.RegisterRequest
@@ -40,4 +41,8 @@ interface ApiService {
     @Headers("Accept: application/json")
     @GET("api/shop/my/order/detail")
     suspend fun getDetail(@Query ("token") token: String?, @Query ("id_encode") id_encode: Long? ): Response<DetailOrderResponse>
+
+    @Headers("Accept: application/json")
+    @POST("api/users/change-password")
+    suspend fun changePass(@Body request: ChangePassRequest): BaseResponse
 }

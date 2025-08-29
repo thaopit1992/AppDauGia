@@ -4,5 +4,6 @@ data class BaseResponse(
     val status: Int,
     val code: String?,
     val message: String?,
+    val token:String?,
     val errors: Map<String, List<String>>? = null
 )

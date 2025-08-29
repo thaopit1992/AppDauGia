@@ -1,6 +1,7 @@
 package com.example.appdaugia.ui.thongtincanhan
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -13,6 +14,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.NestedScrollView
 import com.example.appdaugia.R
@@ -51,6 +53,8 @@ class ThayDoiThongTinActivity : AppCompatActivity() {
         setContentView(R.layout.activity_thay_doi_thong_tin)
         nestedScrollView = findViewById(R.id.nestedScrollView)
         supportActionBar?.hide()
+        window.statusBarColor = Color.TRANSPARENT
+        WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = true
 
         icBack = findViewById(R.id.ic_back)
         btnCheck = findViewById(R.id.btnCheck)

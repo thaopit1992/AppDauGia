@@ -6,122 +6,104 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background_app"
+    android:background="@color/white"
+    android:paddingTop="32dp"
     tools:context=".ui.thongtincanhan.DoiMatKhauActivity">
     <LinearLayout
-        android:paddingTop="24dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
             android:id="@+id/ic_back"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:background="@drawable/ic_back_24"/>
-
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/ic_back"/>
         <TextView
-            android:textStyle="bold"
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
-            android:textSize="18dp"
-            android:paddingRight="64dp"
-            android:textColor="@color/white"
+            android:layout_width="1dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="12dp"
+            android:layout_height="wrap_content"
             android:text="Change Password"
-            android:textAllCaps="true"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:textColor="@color/black"
+            android:fontFamily="@font/manrope_extra_bold"
+            android:textSize="18sp"/>
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="100dp"
-        android:paddingLeft="16dp"
-        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:layout_gravity="center"
-            android:background="@drawable/ic_old_pass"
-            android:layout_width="38dp"
-            android:layout_height="38dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="30dp"
             android:layout_gravity="center"
+            app:startIconTint="@color/grey500"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/grey500"
+            app:boxCornerRadiusTopStart="30dp"
+            app:boxCornerRadiusTopEnd="30dp"
+            app:boxCornerRadiusBottomStart="30dp"
+            app:boxCornerRadiusBottomEnd="30dp"
             style="@style/MyTextInputOutlined">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_old_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Current Password"
-                android:inputType="text"
-                android:singleLine="true"
-                android:textColor="@android:color/black"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:paddingLeft="16dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_gravity="center"
-            android:background="@drawable/ic_pass_2"
-            android:layout_width="38dp"
-            android:layout_height="38dp"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="30dp"
-            android:layout_gravity="center"
-            style="@style/MyTextInputOutlined">
-
-            <com.google.android.material.textfield.TextInputEditText
+                android:hint="Password *"
                 android:id="@+id/txt_pass"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="New Password"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:singleLine="true"
+                android:textSize="14sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:fontFamily="@font/manrope_medium"
                 android:textColor="@android:color/black"/>
         </com.google.android.material.textfield.TextInputLayout>
-
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginTop="20dp"
-        android:paddingLeft="16dp"
-        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:layout_gravity="center"
-            android:background="@drawable/ic_pass_2"
-            android:layout_width="38dp"
-            android:layout_height="38dp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="30dp"
             android:layout_gravity="center"
+            app:startIconTint="@color/grey500"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/grey500"
+            app:boxCornerRadiusTopStart="30dp"
+            app:boxCornerRadiusTopEnd="30dp"
+            app:boxCornerRadiusBottomStart="30dp"
+            app:boxCornerRadiusBottomEnd="30dp"
             style="@style/MyTextInputOutlined">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txt_re_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Confirm Password"
-                android:inputType="text"
+                android:hint="Confirm Password *"
+                android:id="@+id/txt_re_pass"
+                android:inputType="textPassword"
                 android:singleLine="true"
+                android:textSize="14sp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:fontFamily="@font/manrope_medium"
                 android:textColor="@android:color/black"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
@@ -134,12 +116,12 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
-        android:padding="8dp"
+        android:padding="6dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textAllCaps="true"
+        android:textAllCaps="false"
+        android:fontFamily="@font/manrope_bold"
         android:background="@drawable/rounded_button"
-        android:textColor="@android:color/background_light"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="@android:color/background_light"/>
 
 </LinearLayout>

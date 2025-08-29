@@ -24,14 +24,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:textStyle="bold"
             android:id="@+id/user"
             android:layout_gravity="center_vertical"
             android:gravity="center"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textColor="@color/black"
-            android:text="thông tin tài khoản"
-            android:textAllCaps="true"
+            android:fontFamily="@font/manrope_bold"
+            android:text="Account"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"/>

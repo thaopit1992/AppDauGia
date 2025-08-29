@@ -1,6 +1,7 @@
 package com.example.appdaugia.service.repository
 
 import com.example.appdaugia.service.RetrofitClient
+import com.example.appdaugia.service.request.ChangePassRequest
 import com.example.appdaugia.service.request.ForgotRequest
 import com.example.appdaugia.service.request.LoginRequest
 import com.example.appdaugia.service.request.RegisterRequest
@@ -57,6 +58,14 @@ class AuthRepository {
     suspend fun forgot(request: ForgotRequest): Result<BaseResponse> {
         return try {
             val response = RetrofitClient.api.forgot(request)
+            Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+    suspend fun changePass(request: ChangePassRequest): BaseResponse {
+        return try {
+            val response = RetrofitClient.api.changePass(request)
             Result.success(response)
         } catch (e: Exception) {
             Result.failure(e)

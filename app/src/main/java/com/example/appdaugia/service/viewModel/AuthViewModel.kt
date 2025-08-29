@@ -10,6 +10,7 @@ import com.example.appdaugia.service.request.LoginRequest
 import com.example.appdaugia.service.request.RegisterRequest
 import com.example.appdaugia.service.response.ApiResponse
 import com.example.appdaugia.service.repository.AuthRepository
+import com.example.appdaugia.service.request.ChangePassRequest
 import com.example.appdaugia.service.response.BaseResponse
 import com.example.appdaugia.service.response.LoginData
 
@@ -70,6 +71,20 @@ class AuthViewModel  : ViewModel() {
             _loading.postValue(true) // 👉 Bật loading
             try {
                 val result = repository.forgot(request) // Result<ForgotResponse>
+                _baseResult.postValue(result)
+            } catch (e: Exception) {
+                _baseResult.postValue(Result.failure(e))
+            } finally {
+                _loading.postValue(false) // 👉 Tắt loading
+            }
+        }
+    }
+
+    fun chnagePass(request: ChangePassRequest) {
+        viewModelScope.launch {
+            _loading.postValue(true) // 👉 Bật loading
+            try {
+                val result = repository.changePass(request) // Result<ForgotResponse>
                 _baseResult.postValue(result)
             } catch (e: Exception) {
                 _baseResult.postValue(Result.failure(e))

@@ -2,7 +2,7 @@
     <string name="app_name">AppDauGia</string>
     <string name="title_home">My order</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_user">Thông tin</string>
+    <string name="title_user">Account</string>
     <string name="title_dangnhap">ĐĂNG NHẬP</string>
     <string name="title_mem">Member Sign in</string>
     <string name="text_dk"><u>I have read and agree to the terms and conditions</u>.</string>

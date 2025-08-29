@@ -99,6 +99,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:textAllCaps="false"
+        android:fontFamily="@font/manrope_bold"
         android:background="@drawable/rounded_button"
         android:textColor="@android:color/background_light"
         android:layout_marginBottom="16dp"/>
