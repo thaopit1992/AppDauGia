@@ -22,9 +22,11 @@ data class OrderData (
     val shipping_shipment_id: Long?,
     val shipping_tracking_number: String?,
     val vat: String?,
+    val vat_price: String?,
     val buy_date:String?,
     val payment_status : String?,
     val payment_service : String?,
     val total_price: String?,
+    val total_price_net: String?,
     val items: List<Item>?
 ) : Serializable

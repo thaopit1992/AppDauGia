@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import com.example.appdaugia.R
@@ -64,12 +65,15 @@ class QuenMatKhauActivity : AppCompatActivity() {
         viewModel.baseResult.observe(this) { result ->
             result.onSuccess { resp ->
                 val status = resp.status
-                val message = resp.message
 
                 if(status == 1){
-                    val intent = Intent(this, CodeQuenMatKhauActivity::class.java)
-                    intent.putExtra("email", txt_email.text.toString().trim())
-                    startActivity(intent)
+                    AlertDialog.Builder(this)
+                        .setMessage(resp.message)
+                        .setPositiveButton("OK") { dialog, _ ->
+                            dialog.dismiss()
+                            finish()
+                        }
+                        .show()
                 }
             }
             result.onFailure { e ->

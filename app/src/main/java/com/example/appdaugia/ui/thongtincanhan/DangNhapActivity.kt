@@ -100,13 +100,16 @@ class DangNhapActivity : AppCompatActivity() {
                 val status = resp.status
                 val message = resp.message
                 // Lưu session
-                resp.data?.let { sessionManager.saveUserSession(resp.data.id, resp.data.name, resp.token ,
-                    resp.data.email, resp.data.tiktok_username, resp.data.phone
+                if(status == 1){
+                    resp.data?.let { sessionManager.saveUserSession(resp.data.id, resp.data.name, resp.token ,
+                        resp.data.email, resp.data.tiktok_username, resp.data.phone
                     ) }
-                // Chuyển sang màn hình chính
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-                Toast.makeText(this, "Login success! Token: ${resp.token}", Toast.LENGTH_SHORT).show()
+                    // Chuyển sang màn hình chính
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                } else{
+                    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                }
             }
             result.onFailure { e ->
                 Toast.makeText(this, "Login failed: ${e.message}", Toast.LENGTH_SHORT).show()

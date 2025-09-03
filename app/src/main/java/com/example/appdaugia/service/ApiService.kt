@@ -45,4 +45,8 @@ interface ApiService {
     @Headers("Accept: application/json")
     @POST("api/users/change-password")
     suspend fun changePass(@Body request: ChangePassRequest): BaseResponse
+
+    @Headers("Accept: application/json")
+    @POST("/api/user/change-information")
+    suspend fun editeUser(@Body request: RegisterRequest): Response<BaseResponse>
 }

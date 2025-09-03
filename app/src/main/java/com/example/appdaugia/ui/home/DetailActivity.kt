@@ -12,7 +12,6 @@ import androidx.core.view.WindowCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appdaugia.R
-import com.example.appdaugia.adapter.MyOrderAdapter
 import com.example.appdaugia.adapter.MyProductAdapter
 import com.example.appdaugia.data.OrderData
 import com.example.appdaugia.service.viewModel.OrderViewModel
@@ -30,6 +29,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var total_vat: TextView
     private lateinit var tolal_price: TextView
     private lateinit var recycler_view: RecyclerView
+    private lateinit var id_order_tv: TextView
 
     private lateinit var sessionManager: SessionManager
     private val viewModel = OrderViewModel()
@@ -61,6 +61,7 @@ class DetailActivity : AppCompatActivity() {
         total_net_price = findViewById(R.id.total_net_price)
         total_vat = findViewById(R.id.total_vat)
         tolal_price = findViewById(R.id.tolal_price)
+        id_order_tv = findViewById(R.id.id_order_tv)
 
 
         // lay du lieu
@@ -95,17 +96,18 @@ class DetailActivity : AppCompatActivity() {
                     tv_status.text = resp.data?.shipping_status.toString()
                     payment_status.text = resp.data?.payment_status
                     payment_sv.text = resp.data?.payment_service
-//                    total_net_price.text = resp.data?.total_net_price
-//                    total_vat.text = resp.data?.total_vat
-//                    tolal_price.text = resp.data?.tolal_price
+                    total_net_price.text = resp.data?.total_price_net
+                    total_vat.text = resp.data?.vat_price
+                    tolal_price.text = resp.data?.total_price
+                    id_order_tv.text = resp.data?.code
 
 
                     resp.data?.items?.let { list ->   // <- lấy items
                         val adapter = MyProductAdapter(list) { item ->
-                            val intent = Intent(this, DetailActivity::class.java).apply {
-                                putExtra("Item", item)
-                            }
-                            startActivity(intent)
+//                            val intent = Intent(this, DetailActivity::class.java).apply {
+//                                putExtra("Item", item)
+//                            }
+//                            startActivity(intent)
                         }
                         recycler_view.adapter = adapter
                     }

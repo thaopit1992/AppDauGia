@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+
+<LinearLayout
+    android:background="@drawable/bg_text_rounded_4"
+    android:padding="8dp"
     android:layout_marginTop="12dp"
     android:layout_marginLeft="12dp"
     android:layout_marginRight="12dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="6dp">
-    <LinearLayout
-        android:background="@color/white"
-        android:padding="10dp"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -30,7 +26,7 @@
                     android:textStyle="bold"
                     android:textSize="14sp"
                     android:textColor="@color/black"
-                    android:text="Áo Thun Polo Nam Thêu Chữ U,Chất Liệu Thấm Hút Mồ Hôi,Cổ Phối Màu "
+                    tools:text="Áo Thun Polo Nam Thêu Chữ U,Chất Liệu Thấm Hút Mồ Hôi,Cổ Phối Màu "
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <LinearLayout
@@ -47,7 +43,7 @@
                         android:id="@+id/txt_price"
                         android:textSize="14sp"
                         android:textColor="@color/black"
-                        android:text="200"
+                        tools:text="200"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
@@ -60,7 +56,7 @@
                         android:id="@+id/txt_quantity"
                         android:textSize="14sp"
                         android:textColor="@color/black"
-                        android:text=" 2"
+                        tools:text=" 2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
@@ -92,7 +88,7 @@
                         android:id="@+id/txt_total_net"
                         android:textSize="14sp"
                         android:textColor="@color/primaryBG"
-                        android:text="2200"
+                        tools:text="2200"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
@@ -124,7 +120,7 @@
                     android:id="@+id/txt_vat"
                     android:textSize="14sp"
                     android:textColor="@color/black"
-                    android:text="19"
+                    tools:text="19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
@@ -152,7 +148,7 @@
                     android:id="@+id/txt_gross"
                     android:textSize="14sp"
                     android:textColor="@color/primaryBG"
-                    android:text="3000"
+                    tools:text="3000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
@@ -164,4 +160,3 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-</androidx.cardview.widget.CardView>

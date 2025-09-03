@@ -1,5 +1,6 @@
 package com.example.appdaugia.service.viewModel
 
+import android.R.id.message
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
@@ -25,6 +26,9 @@ class AuthViewModel  : ViewModel() {
 
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
+
+    private val _editUserResult = MutableLiveData<Result<BaseResponse>>()
+    val editUserResult: LiveData<Result<BaseResponse>> = _editUserResult
 
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> get() = _loading
@@ -70,7 +74,7 @@ class AuthViewModel  : ViewModel() {
         viewModelScope.launch {
             _loading.postValue(true) // 👉 Bật loading
             try {
-                val result = repository.forgot(request) // Result<ForgotResponse>
+                val result = repository.forgot(request)
                 _baseResult.postValue(result)
             } catch (e: Exception) {
                 _baseResult.postValue(Result.failure(e))
@@ -84,7 +88,7 @@ class AuthViewModel  : ViewModel() {
         viewModelScope.launch {
             _loading.postValue(true) // 👉 Bật loading
             try {
-                val result = repository.changePass(request) // Result<ForgotResponse>
+                val result = repository.changePass(request)
                 _baseResult.postValue(result)
             } catch (e: Exception) {
                 _baseResult.postValue(Result.failure(e))
@@ -94,6 +98,25 @@ class AuthViewModel  : ViewModel() {
         }
     }
 
+    fun editeUser(request: RegisterRequest) {
+        viewModelScope.launch {
+            _loading.postValue(true)
+            try {
+                val result = repository.editeUser(request)
+                result.onSuccess { baseResponse ->
+                    if (baseResponse.status == 1) {
+                        _editUserResult.postValue(result)
+                    } else {
+                        _errorMessage.postValue(baseResponse.getAllErrors())
+                    }
+                }.onFailure { e ->
+                    _errorMessage.postValue(e.message ?: "Unknown error")
+                }
+            } finally {
+                _loading.postValue(false)
+            }
+        }
+    }
     // ham lay loi
     fun BaseResponse.getAllErrors(): String {
         val builder = StringBuilder()

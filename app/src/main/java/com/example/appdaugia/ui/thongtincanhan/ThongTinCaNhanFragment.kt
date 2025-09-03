@@ -18,6 +18,7 @@ import android.widget.EditText
 import android.widget.PopupWindow
 import com.example.appdaugia.MainActivity
 import com.example.appdaugia.R
+import com.example.appdaugia.service.response.LoginData
 import com.example.appdaugia.service.viewModel.AuthViewModel
 import com.example.appdaugia.utils.LoadingDialog
 import com.example.appdaugia.utils.SessionManager
@@ -37,7 +38,7 @@ class ThongTinCaNhanFragment : Fragment() {
 
     private lateinit var sessionManager: SessionManager
     private var viewModel = AuthViewModel()
-    private lateinit var loadingDialog: LoadingDialog  // custom dialog ở bước trước
+    private lateinit var loadingDialog: LoadingDialog
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,8 +66,6 @@ class ThongTinCaNhanFragment : Fragment() {
         txt_posstcode = root.findViewById(R.id.txt_posstcode)
         txt_location = root.findViewById(R.id.txt_location)
         txt_contry = root.findViewById(R.id.txt_contry)
-
-        //call api lay thong tin user
 
         // Tìm View trong layout
         user.setOnClickListener {
@@ -111,7 +110,6 @@ class ThongTinCaNhanFragment : Fragment() {
         customMenuView.findViewById<View>(R.id.tv_option_1).setOnClickListener {
             val intent = Intent(requireContext(), ThayDoiThongTinActivity::class.java)
             startActivity(intent)
-            //sửa thì hien cac truong duoc sua
             popupWindow.dismiss()
         }
         customMenuView.findViewById<View>(R.id.tv_option_2).setOnClickListener {
@@ -121,7 +119,6 @@ class ThongTinCaNhanFragment : Fragment() {
         }
         customMenuView.findViewById<View>(R.id.tv_option_3).setOnClickListener {
             sessionManager.logout()
-            // Chuyển sang màn hình Đăng nhập (thường là trong Activity)
              val intent = Intent(activity, MainActivity::class.java)
              startActivity(intent)
              requireActivity().finish()
@@ -135,17 +132,21 @@ class ThongTinCaNhanFragment : Fragment() {
                 val status = resp.status
                 val message = resp.message
                 //  Read data
-                resp.data?.let {
-                    txt_name.setText(resp.data.name ?: "")
-                    id_name.setText(resp.data.id.toString())
-                    txt_email.setText(resp.data.email ?:"")
-                    txt_phone.setText(resp.data.phone ?:"")
-                    txt_tiktok.setText(resp.data.tiktok_username ?:"")
-                    txt_add.setText(resp.data.address?:"")
-                    txt_number.setText(resp.data.house_number?:"")
-                    txt_posstcode.setText(resp.data.postal_code?:"")
-                    txt_location.setText(resp.data.location?:"")
-                    txt_contry.setText(resp.data.country?:"")
+                if(status == 1){
+                    resp.data?.let {
+                        txt_name.setText(resp.data.name ?: "")
+                        id_name.setText(resp.data.id.toString())
+                        txt_email.setText(resp.data.email ?:"")
+                        txt_phone.setText(resp.data.phone ?:"")
+                        txt_tiktok.setText(resp.data.tiktok_username ?:"")
+                        txt_add.setText(resp.data.address?:"")
+                        txt_number.setText(resp.data.house_number?:"")
+                        txt_posstcode.setText(resp.data.postal_code?:"")
+                        txt_location.setText(resp.data.location?:"")
+                        txt_contry.setText(resp.data.country?:"")
+                    }
+                } else {
+                    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
                 }
             }
             result.onFailure { e ->

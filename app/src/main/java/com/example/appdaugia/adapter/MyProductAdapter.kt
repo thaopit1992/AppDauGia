@@ -31,9 +31,9 @@ class MyProductAdapter(private val items: List<Item>,
         holder.txt_name.text = item.product.name
         holder.txt_price.text = item.product_price_net
         holder.txt_quantity.text = item.quantity
-        holder.txt_total_net.text = item.product_price_net
+        holder.txt_total_net.text = item.total_price
         holder.txt_vat.text = item.vat
-        holder.txt_gross.text = item.total_price
+        holder.txt_gross.text = item.product_price_vat
 
         // Thiết lập sự kiện click
         holder.itemView.setOnClickListener {

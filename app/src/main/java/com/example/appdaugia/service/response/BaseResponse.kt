@@ -5,5 +5,6 @@ data class BaseResponse(
     val code: String?,
     val message: String?,
     val token:String?,
+    val data: LoginData? = null,
     val errors: Map<String, List<String>>? = null
 )

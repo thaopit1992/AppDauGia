@@ -144,12 +144,12 @@ class DangKyActivity : AppCompatActivity() {
             if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_pass, "Input your password", this)) return@setOnClickListener
             if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_re_pass, "Input your confirm password", this)) return@setOnClickListener
 
-            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_fullname_recip, "Input your fullname recipient", this)) return@setOnClickListener
-            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_street_recip, "Input your street", this)) return@setOnClickListener
-            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_house_recip, "Input your house number", this)) return@setOnClickListener
-            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_postcode_recip, "Input your postal code", this)) return@setOnClickListener
-            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_location_recip, "Input your location", this)) return@setOnClickListener
-            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_country_recip, "Input your country", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_fullname_recip, "Input your fullname shipping", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_street_recip, "Input your street shipping", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_house_recip, "Input your house number shipping", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_postcode_recip, "Input your postal code shipping", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_location_recip, "Input your location shipping", this)) return@setOnClickListener
+            if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_country_recip, "Input your country shipping", this)) return@setOnClickListener
 
             if (!txt_pass.text.toString().trim().equals(txt_re_pass.text.toString().trim(), ignoreCase = false)) {
                 Toast.makeText(this, "Please confirm your password", Toast.LENGTH_SHORT).show()

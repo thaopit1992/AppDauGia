@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<LinearLayout
+    android:background="@drawable/bg_text_rounded_4"
+    android:id="@+id/item_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:layout_marginTop="12dp"
     android:layout_marginLeft="12dp"
     android:layout_marginRight="12dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="6dp">
-
-    <LinearLayout
-        android:background="@color/white1"
-        android:id="@+id/item_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
+    android:padding="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
         <LinearLayout
             android:orientation="vertical"
@@ -48,7 +42,7 @@
                             android:textSize="14sp"
                             android:fontFamily="@font/manrope_bold"
                             android:textColor="@color/black"
-                            android:text="ORDER- 1523269983.12"
+                            tools:text="ORDER- 1523269983.12"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                     </LinearLayout>
@@ -74,7 +68,7 @@
                             android:layout_marginLeft="6dp"
                             android:id="@+id/time"
                             android:textSize="15sp"
-                            android:text="2025-08-19"
+                            tools:text="2025-08-19"
                             android:textColor="@color/black"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
@@ -132,7 +126,7 @@
                             android:layout_gravity="center"
                             android:id="@+id/number"
                             android:textSize="12sp"
-                            android:text="2 "
+                            tools:text="2 "
                             android:textStyle="bold"
                             android:textColor="@color/black"
                             android:layout_width="wrap_content"
@@ -160,7 +154,7 @@
                         android:textStyle="bold"
                         android:textSize="12sp"
                         android:textColor="@color/primaryBG"
-                        android:text="Processing"
+                        tools:text="Processing"
                         android:layout_gravity="right"
                         android:gravity="center"
                         android:layout_width="match_parent"
@@ -171,5 +165,3 @@
         </LinearLayout>
     </LinearLayout>
 
-
-</androidx.cardview.widget.CardView>

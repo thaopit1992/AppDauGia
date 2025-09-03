@@ -6,4 +6,5 @@ data class ApiResponse<T>(
     val message: String?,
     val token : String?,
     val data: T? = null,
+    val errors: Map<String, List<String>>? = null
 )

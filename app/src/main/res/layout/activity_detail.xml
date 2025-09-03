@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="64dp"
-    android:paddingTop="24dp"
+    android:paddingTop="30dp"
     tools:context=".ui.home.DetailActivity">
 
     <LinearLayout
@@ -28,6 +28,7 @@
                 android:layout_height="25dp"
                 android:background="@drawable/ic_back"/>
             <TextView
+                android:id="@+id/id_order_tv"
                 android:layout_width="1dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -36,7 +37,7 @@
                 android:fontFamily="@font/manrope_extra_bold"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:textSize="24sp"/>
+                android:textSize="20sp"/>
             <ImageView
                 android:visibility="invisible"
                 android:layout_gravity="center"
@@ -56,6 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
+            android:visibility="gone"
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -208,7 +210,6 @@
     </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:paddingBottom="10dp"
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -221,7 +222,7 @@
             />
 
     <View
-        android:layout_margin="8dp"
+        android:layout_margin="12dp"
         android:background="@color/primaryBG"
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
@@ -257,17 +258,31 @@
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-                <TextView
-                    android:id="@+id/total_net_price"
-                    android:paddingRight="12dp"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:text="752,10 €"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"/>
+                    android:gravity="right"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/total_net_price"
+                        android:paddingRight="8dp"
+                        android:textSize="14sp"
+                        tools:text="752,10"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:paddingRight="12dp"
+                        android:textSize="14sp"
+                        android:text=" €"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
             </LinearLayout>
             <LinearLayout
                 android:paddingBottom="6dp"
@@ -282,17 +297,31 @@
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-                <TextView
-                    android:id="@+id/total_vat"
-                    android:paddingRight="12dp"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:text="52,10 €"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"/>
+                    android:gravity="right"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/total_vat"
+                        android:paddingRight="8dp"
+                        android:textSize="14sp"
+                        tools:text="752,10"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:paddingRight="12dp"
+                        android:textSize="14sp"
+                        android:text=" €"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
             </LinearLayout>
             <LinearLayout
                 android:paddingBottom="6dp"
@@ -307,23 +336,38 @@
                     android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-                <TextView
-                    android:id="@+id/tolal_price"
-                    android:paddingRight="12dp"
-                    android:gravity="right"
-                    android:textSize="14sp"
-                    android:text="752,10 €"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"/>
+                    android:gravity="right"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tolal_price"
+                        android:paddingRight="8dp"
+                        android:textSize="14sp"
+                        tools:text="752,10"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:paddingRight="12dp"
+                        android:textSize="14sp"
+                        android:text=" €"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
 
     <LinearLayout
+        android:visibility="gone"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"

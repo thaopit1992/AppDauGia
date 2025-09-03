@@ -63,10 +63,36 @@ class AuthRepository {
             Result.failure(e)
         }
     }
-    suspend fun changePass(request: ChangePassRequest): BaseResponse {
+    suspend fun changePass(request: ChangePassRequest): Result<BaseResponse> {
         return try {
             val response = RetrofitClient.api.changePass(request)
             Result.success(response)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+    suspend fun editeUser(request: RegisterRequest): Result<BaseResponse> {
+        return try {
+            val response = RetrofitClient.api.editeUser(request)
+
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    Result.success(it)
+                } ?: Result.failure(Exception("Empty response body"))
+            } else {
+                // parse lỗi
+                val errorBody = response.errorBody()?.string()
+                val errorResponse = try {
+                    Gson().fromJson(errorBody, BaseResponse::class.java)
+                } catch (e: Exception) {
+                    null
+                }
+                if (errorResponse != null) {
+                    Result.success(errorResponse) // Trả về BaseResponse lỗi
+                } else {
+                    Result.failure(Exception("Unexpected error: $errorBody"))
+                }
+            }
         } catch (e: Exception) {
             Result.failure(e)
         }
