@@ -24,8 +24,8 @@ import com.example.appdaugia.utils.NetworkUtils
 class AuthViewModel  : ViewModel() {
     private val repository = AuthRepository()
 
-    private val _loginResult = MutableLiveData<Result<BaseResponse>>()
-    val loginResult: LiveData<Result<BaseResponse>> = _loginResult
+    private val _loginResult = MutableLiveData<Result<BaseResponse>?>()
+    val loginResult: LiveData<Result<BaseResponse>?> = _loginResult
 
     private val _baseResult = MutableLiveData<Result<BaseResponse>>()
     val baseResult: LiveData<Result<BaseResponse>> = _baseResult
@@ -38,6 +38,10 @@ class AuthViewModel  : ViewModel() {
 
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> get() = _loading
+
+    fun clearLoginResult() {
+        _loginResult.value = null
+    }
     @RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
     fun login(context: Context, token: String, username: String, password: String) {
         if (!NetworkUtils.isNetworkAvailable(context)) {

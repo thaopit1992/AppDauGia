@@ -20,6 +20,7 @@ import com.example.appdaugia.data.OrderData
 import com.example.appdaugia.service.viewModel.AuthViewModel
 import com.example.appdaugia.service.viewModel.OrderViewModel
 import com.example.appdaugia.utils.AppStrings
+import com.example.appdaugia.utils.DialogUtils
 import com.example.appdaugia.utils.LoadingDialog
 import com.example.appdaugia.utils.SessionManager
 import java.util.Calendar
@@ -112,10 +113,15 @@ class HomeFragment : Fragment() {
                         }
                         recycler_view.adapter = adapter
                     }
-                } else  Toast.makeText(requireContext(), "Failed: " + resp.message, Toast.LENGTH_SHORT).show()
+                } else  {
+                    DialogUtils.showCustomDialog(
+                        context = requireContext(),
+                        message = resp.message,
+                    ) {}
+                }
             }
             result.onFailure { e ->
-                Toast.makeText(requireContext(), "Failed: ${e.message}", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(requireContext(), "Failed: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }
     }

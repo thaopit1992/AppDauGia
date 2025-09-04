@@ -87,11 +87,14 @@ class ThongTinCaNhanFragment : Fragment() {
             else loadingDialog.dismiss()
         }
 
+        return root
+    }
+
+    override fun onResume() {
+        super.onResume()
         //goi api getuser
         viewModel.getUser(context = requireContext(), token = sessionManager.getToken())
         resGetUser()
-
-        return root
     }
 
     private fun showCustomMenu(anchorView: View) {
@@ -129,7 +132,7 @@ class ThongTinCaNhanFragment : Fragment() {
 
     private fun resGetUser(){
         viewModel.loginResult.observe(viewLifecycleOwner) { result ->
-            result.onSuccess { resp ->
+            result?.onSuccess { resp ->
                 val status = resp.status
                 val message = resp.message
                 //  Read data
@@ -153,7 +156,7 @@ class ThongTinCaNhanFragment : Fragment() {
                     ) {}
                 }
             }
-            result.onFailure { e ->
+            result?.onFailure { e ->
                 DialogUtils.showCustomDialog(
                     context = requireContext(),
                     message = e.message.toString()

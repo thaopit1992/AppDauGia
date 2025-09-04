@@ -24,49 +24,65 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var sessionManager: SessionManager
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
-            val splashScreen = installSplashScreen()
-            super.onCreate(savedInstanceState)
-            // Giữ splash 3 giây
-            splashScreen.setKeepOnScreenCondition { true }
-            Handler(Looper.getMainLooper()).postDelayed({
-                splashScreen.setKeepOnScreenCondition { false }
-            }, 1000)
-            // Inflate layout chính
-            binding = ActivityMainBinding.inflate(layoutInflater)
-            setContentView(binding.root)
-            supportActionBar?.hide()
+        // Splash screen
+        val splashScreen = installSplashScreen()
+        super.onCreate(savedInstanceState)
 
-        // Full màn hình
-        supportActionBar?.hide()
+        // Giữ splash 1 giây (1000ms)
+        splashScreen.setKeepOnScreenCondition { true }
+        Handler(Looper.getMainLooper()).postDelayed({
+            splashScreen.setKeepOnScreenCondition { false }
+        }, 1000)
+
+        // Inflate layout
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Set Toolbar làm ActionBar
+        setSupportActionBar(binding.toolbar)
+
+        // StatusBar trong suốt, text màu tối
         window.statusBarColor = Color.TRANSPARENT
         WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = true
+
+        // Setup Navigation
         setupNavigation()
     }
 
     override fun onResume() {
         super.onResume()
-        // check login
+        // Check login
         sessionManager = SessionManager(this)
         if (!sessionManager.isLoggedIn()) {
-            // Nếu chưa đăng nhập, chuyển đến màn hình đăng nhập
             val intent = Intent(this, DangNhapActivity::class.java)
             startActivity(intent)
-            this.finish()
+            finish()
         }
     }
+
     private fun setupNavigation() {
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
+
+        // Các top-level destinations
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home,
-//                R.id.navigation_dashboard,
                 R.id.navigation_notifications
             )
         )
+
+        // Liên kết Toolbar với NavController
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        // Liên kết BottomNavigationView với NavController
         navView.setupWithNavController(navController)
+    }
+
+    // Cho nút back trên Toolbar hoạt động với NavController
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }

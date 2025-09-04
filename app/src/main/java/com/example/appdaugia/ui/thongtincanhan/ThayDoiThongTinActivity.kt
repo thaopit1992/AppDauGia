@@ -286,7 +286,7 @@ class ThayDoiThongTinActivity : AppCompatActivity() {
 
     private fun resGetUser(){
         viewModel.loginResult.observe(this) { result ->
-            result.onSuccess { resp ->
+            result?.onSuccess { resp ->
                 val status = resp.status
                 val message = resp.message
                 //  Read data
@@ -314,11 +314,16 @@ class ThayDoiThongTinActivity : AppCompatActivity() {
                         txt_tiktok.setText(resp.data.tiktok_username?:"")
                     }
                 } else {
-                    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                    DialogUtils.showCustomDialog(
+                        context = this,
+                        message = resp.message.toString(),
+                    ) {
+                        // Xử lý khi bấm OK
+                    }
                 }
             }
-            result.onFailure { e ->
-                Toast.makeText(this, "Get Info failed: ${e.message}", Toast.LENGTH_SHORT).show()
+            result?.onFailure { e ->
+//                Toast.makeText(this, "Get Info failed: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }
         viewModel.errorMessage.observe(this) { msg ->

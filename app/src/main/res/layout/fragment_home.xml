@@ -21,7 +21,7 @@
             android:gravity="center"
             android:textSize="16sp"
             android:textColor="@color/black"
-            android:text="Good morning, "
+            tools:text="Good morning, "
             android:fontFamily="@font/manrope_extra_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -86,12 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="0dp"
-            android:layout_weight="3"
-            android:layout_height="wrap_content">
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -125,7 +120,7 @@
                     android:layout_gravity="center"
                     android:textColor="@color/black"
                     android:gravity="right"
-                    android:text="My order: "
+                    android:text="@string/my_order"
                     android:textSize="14sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -137,10 +132,12 @@
                     android:gravity="right"
                     android:layout_marginLeft="8dp"
                     android:textSize="14sp"
+                    tools:text="2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

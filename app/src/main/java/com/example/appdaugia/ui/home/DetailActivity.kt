@@ -15,6 +15,7 @@ import com.example.appdaugia.R
 import com.example.appdaugia.adapter.MyProductAdapter
 import com.example.appdaugia.data.OrderData
 import com.example.appdaugia.service.viewModel.OrderViewModel
+import com.example.appdaugia.utils.DialogUtils
 import com.example.appdaugia.utils.LoadingDialog
 import com.example.appdaugia.utils.SessionManager
 
@@ -112,10 +113,15 @@ class DetailActivity : AppCompatActivity() {
                         recycler_view.adapter = adapter
                     }
 
-                } else  Toast.makeText(this, "Failed: " + resp.message, Toast.LENGTH_SHORT).show()
+                } else  {
+                    DialogUtils.showCustomDialog(
+                        context = this,
+                        message = resp.message,
+                    ) {}
+                }
             }
             result.onFailure { e ->
-                Toast.makeText(this, "Failed: ${e.message}", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this, "Failed: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }
     }

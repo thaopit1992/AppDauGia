@@ -36,20 +36,22 @@
             android:layout_height="match_parent"/>
 
     </LinearLayout>
+
     <TextView
-        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello Again!"
-        android:textColor="@color/black"
-        android:fontFamily="@font/manrope_extra_bold"
         android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/manrope_extra_bold"
         android:gravity="center"
-        android:textSize="18sp"/>
+        android:text="@string/hello_again"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome back, you've been misses!"
+        android:text="@string/well_come"
         android:textColor="@color/grey800"
         android:fontFamily="@font/manrope_regular"
         android:layout_gravity="center"
@@ -85,13 +87,12 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Email *"
+                    android:hint="@string/email"
                     android:id="@+id/txt_email"
                     android:inputType="text"
                     android:singleLine="true"
                     android:textSize="14sp"
                     android:fontFamily="@font/manrope_medium"
-                    android:text="thaopx.itsw@gmail.com"
                     android:textColor="@android:color/black"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -125,9 +126,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password *"
+                android:hint="@string/pass"
                 android:id="@+id/txt_pass"
-                android:text="Xuanthao166"
                 android:textColor="@color/black"
                 android:inputType="textPassword"
                 android:fontFamily="@font/manrope_medium"
@@ -141,7 +141,7 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign In"
+            android:text="@string/sign_in"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
@@ -162,7 +162,7 @@
             android:id="@+id/tvForgot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Forgot Password ?"
+            android:text="@string/forgot_pass"
             android:textColor="@color/primaryBG"
             android:textSize="14sp"
             android:fontFamily="@font/manrope_bold"
@@ -186,7 +186,7 @@
             android:id="@+id/tvRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Do not have an account?"
+            android:text="@string/do_not_have_an_acc"
             android:fontFamily="@font/manrope_extra_light"
             android:textColor="@color/black"
             android:textSize="15sp"/>
@@ -194,7 +194,7 @@
             android:id="@+id/btnDangKy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
+            android:text="@string/sign_up"
             android:paddingLeft="8dp"
             android:paddingRight="8dp"
             android:textSize="15sp"

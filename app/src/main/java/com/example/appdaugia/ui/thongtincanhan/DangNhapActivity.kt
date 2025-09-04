@@ -81,12 +81,11 @@ class DangNhapActivity : AppCompatActivity() {
             //goi api login
             viewModel.login(context = this, token = AppStrings.TOKEN_BASE,username = username,password=  password)
         }
+        resLogin()
 
         // xu ly nut back ban phim = icBack
         // Đăng ký callback
         onBackPressedDispatcher.addCallback(this, callback)
-
-        resLogin()
     }
     // Biến callback phải được khai báo ở phạm vi class
     private val callback = object : OnBackPressedCallback(true) {
@@ -97,7 +96,7 @@ class DangNhapActivity : AppCompatActivity() {
 
     private fun resLogin(){
         viewModel.loginResult.observe(this) { result ->
-            result.onSuccess { resp ->
+            result?.onSuccess { resp ->
                 val status = resp.status
                 val message = resp.message
                 // Lưu session
@@ -115,8 +114,7 @@ class DangNhapActivity : AppCompatActivity() {
                     ) {}
                 }
             }
-            result.onFailure { e ->
-                Toast.makeText(this, "Login failed: ${e.message}", Toast.LENGTH_SHORT).show()
+            result?.onFailure { e ->
             }
         }
         viewModel.errorMessage.observe(this) { msg ->

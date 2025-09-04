@@ -83,7 +83,7 @@ class QuenMatKhauActivity : AppCompatActivity() {
                 }
             }
             result.onFailure { e ->
-                Toast.makeText(this, "onFailure: ${e.message}", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this, "onFailure: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }
         viewModel.errorMessage.observe(this) { msg ->

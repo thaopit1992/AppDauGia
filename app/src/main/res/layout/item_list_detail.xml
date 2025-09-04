@@ -36,7 +36,7 @@
                     <TextView
                         android:textSize="14sp"
                         android:textColor="@color/black"
-                        android:text="$ "
+                        android:text="€ "
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
@@ -73,7 +73,7 @@
                     android:gravity="right|bottom"
                     android:textSize="14sp"
                     android:textColor="@color/black"
-                    android:text="Total(net)"
+                    android:text="@string/total_net_0"
                     android:textStyle="bold"
                     android:paddingBottom="8dp"
                     android:layout_width="match_parent"
@@ -94,7 +94,7 @@
                     <TextView
                         android:textSize="14sp"
                         android:textColor="@color/black"
-                        android:text=" $"
+                        android:text=" €"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
@@ -113,7 +113,7 @@
                 <TextView
                     android:textSize="14sp"
                     android:textColor="@color/black"
-                    android:text="VAT: "
+                    android:text="@string/vat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
@@ -139,7 +139,7 @@
                 <TextView
                     android:textSize="14sp"
                     android:textColor="@color/black"
-                    android:text="Total(gross): "
+                    android:text="@string/total_net_gr"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -154,7 +154,7 @@
                 <TextView
                     android:textSize="14sp"
                     android:textColor="@color/black"
-                    android:text=" $"
+                    android:text=" €"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>

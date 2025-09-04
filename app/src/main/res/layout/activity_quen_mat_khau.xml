@@ -38,7 +38,7 @@
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Forgot Password"
+        android:text="@string/forgot_pass"
         android:textColor="@color/black"
         android:fontFamily="@font/manrope_extra_bold"
         android:layout_gravity="center"
@@ -47,7 +47,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter your email to receive a verification code."
+        android:text="@string/enter_your_email"
         android:textColor="@color/grey800"
         android:fontFamily="@font/manrope_regular"
         android:layout_gravity="center"
@@ -76,13 +76,13 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email *"
+                android:hint="@string/email"
                 android:id="@+id/txt_email"
                 android:inputType="text"
                 android:singleLine="true"
                 android:textSize="14sp"
                 android:fontFamily="@font/manrope_medium"
-                android:text="thaopx.itsw@gmail.com"
+                tools:text="thaopx.itsw@gmail.com"
                 android:textColor="@android:color/black"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
@@ -91,7 +91,7 @@
         android:id="@+id/btnQuenMK"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continue"
+        android:text="@string/continue_"
         android:layout_marginTop="20dp"
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"

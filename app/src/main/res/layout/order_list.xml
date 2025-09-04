@@ -59,7 +59,7 @@
                         <TextView
                             android:layout_marginLeft="6dp"
                             android:textSize="12sp"
-                            android:text="Buy time: "
+                            android:text="@string/buy_time"
                             android:textStyle="bold"
                             android:textColor="@color/black"
                             android:layout_width="wrap_content"
@@ -84,7 +84,7 @@
                     <TextView
                         android:textStyle="bold"
                         android:textSize="17sp"
-                        android:text="$ "
+                        android:text="€ "
                         android:textColor="@color/black"
                         android:layout_gravity="right"
                         android:gravity="right"
@@ -94,7 +94,7 @@
                         android:id="@+id/total"
                         android:textStyle="bold"
                         android:textSize="17sp"
-                        android:text="1.02"
+                        tools:text="1.02"
                         android:layout_gravity="right"
                         android:gravity="right"
                         android:textColor="@color/black"
@@ -132,10 +132,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
                         <TextView
+                            android:paddingLeft="8dp"
                             android:paddingRight="8dp"
                             android:layout_gravity="center"
                             android:textSize="12sp"
-                            android:text=" Item"
+                            android:text="@string/item"
                             android:textStyle="bold"
                             android:textColor="@color/black"
                             android:layout_width="wrap_content"

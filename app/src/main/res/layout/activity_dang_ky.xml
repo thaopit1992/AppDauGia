@@ -37,7 +37,7 @@
                 android:layout_width="1dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Sign Up"
+                android:text="@string/sign_up"
                 android:textColor="@color/black"
                 android:fontFamily="@font/manrope_extra_bold"
                 android:layout_gravity="center"
@@ -66,7 +66,7 @@
             android:layout_marginBottom="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Let's create your account here!"
+            android:text="@string/let_create"
             android:textColor="@color/grey800"
             android:fontFamily="@font/manrope_regular"
             android:layout_gravity="center"
@@ -85,7 +85,7 @@
                 <TextView
                     android:textSize="16dp"
                     android:textColor="@color/purple_500"
-                    android:text="Information"
+                    android:text="@string/info"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -112,7 +112,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Name *"
+                        android:hint="@string/name_8"
                         android:id="@+id/txt_name"
                         android:inputType="text"
                         android:singleLine="true"
@@ -147,7 +147,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="First Name *"
+                        android:hint="@string/firt_name_8"
                         android:id="@+id/txtfirst"
                         android:inputType="text"
                         android:singleLine="true"
@@ -182,7 +182,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Company"
+                        android:hint="@string/com_8"
                         android:id="@+id/txt_company"
                         android:inputType="text"
                         android:singleLine="true"
@@ -217,7 +217,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="VAT ID"
+                        android:hint="@string/vat_id_8"
                         android:id="@+id/txt_vat_id"
                         android:inputType="text"
                         android:singleLine="true"
@@ -240,7 +240,7 @@
                 <TextView
                     android:textSize="16dp"
                     android:textColor="@color/purple_500"
-                    android:text="Address and Shipping"
+                    android:text="@string/address_and_shipping"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -267,7 +267,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Street *"
+                        android:hint="@string/street_8"
                         android:id="@+id/txt_street"
                         android:inputType="text"
                         android:singleLine="true"
@@ -302,7 +302,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="House number *"
+                        android:hint="@string/house_number_8"
                         android:id="@+id/txt_number"
                         android:inputType="text"
                         android:singleLine="true"
@@ -337,7 +337,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Postal code *"
+                        android:hint="@string/postal_code_8"
                         android:id="@+id/txt_poscode"
                         android:inputType="text"
                         android:singleLine="true"
@@ -372,7 +372,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="City *"
+                        android:hint="@string/city_8"
                         android:id="@+id/txt_location"
                         android:inputType="text"
                         android:singleLine="true"
@@ -411,7 +411,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Country *"
+                        android:hint="@string/country_8"
                         android:id="@+id/txt_country"
                         android:inputType="text"
                         android:focusable="false"
@@ -436,13 +436,13 @@
                     android:id="@+id/check_dif"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:buttonTint="@color/black"
+                    android:buttonTint="@color/primaryBG"
                     />
                 <TextView
                     android:layout_gravity="center"
                     android:textSize="16sp"
                     android:textColor="@color/black"
-                    android:text="Different delivery address?"
+                    android:text="@string/dif_devi_add"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -475,7 +475,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Fullname Recipient *"
+                            android:hint="@string/full_rep_8"
                             android:id="@+id/txt_fullname_recip"
                             android:inputType="text"
                             android:singleLine="true"
@@ -510,7 +510,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Street *"
+                            android:hint="@string/street_8"
                             android:id="@+id/txt_street_recip"
                             android:inputType="text"
                             android:singleLine="true"
@@ -545,7 +545,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="House number *"
+                            android:hint="@string/house_number_8"
                             android:id="@+id/txt_house_recip"
                             android:inputType="text"
                             android:singleLine="true"
@@ -580,7 +580,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Postal code *"
+                            android:hint="@string/postal_code_8"
                             android:id="@+id/txt_postcode_recip"
                             android:inputType="text"
                             android:singleLine="true"
@@ -615,7 +615,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="City *"
+                            android:hint="@string/city_8"
                             android:id="@+id/txt_location_recip"
                             android:inputType="text"
                             android:singleLine="true"
@@ -654,7 +654,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Country *"
+                            android:hint="@string/country_8"
                             android:id="@+id/txt_country_recip"
                             android:inputType="text"
                             android:focusable="false"
@@ -683,7 +683,7 @@
                 <TextView
                     android:textSize="16dp"
                     android:textColor="@color/purple_500"
-                    android:text="Account"
+                    android:text="@string/account"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -710,7 +710,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Telephone *"
+                        android:hint="@string/telephone_8"
                         android:id="@+id/txt_phone"
                         android:inputType="number"
                         android:singleLine="true"
@@ -745,7 +745,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Email *"
+                        android:hint="@string/email"
                         android:id="@+id/txt_email"
                         android:inputType="text"
                         android:singleLine="true"
@@ -763,7 +763,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="A confirmation email will be sent to activate the account"
+                android:text="@string/confirm_email"
                 android:textColor="@color/grey800"
                 android:fontFamily="@font/manrope_regular"
                 android:layout_gravity="center"
@@ -793,7 +793,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Password *"
+                        android:hint="@string/pass"
                         android:id="@+id/txt_pass"
                         android:inputType="textPassword"
                         android:singleLine="true"
@@ -830,7 +830,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Confirm Password *"
+                        android:hint="@string/conf_pass_8"
                         android:id="@+id/txt_re_pass"
                         android:inputType="textPassword"
                         android:singleLine="true"
@@ -850,7 +850,7 @@
                 android:layout_height="wrap_content">
                 <TextView
                     style="@style/textTitle"
-                    android:text="TikTok username"
+                    android:text="@string/tiktok_us_8"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -862,14 +862,14 @@
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="8dp"
-                    android:textSize="14dp"
-                    android:text="(Please click the Check button to verify)"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
             </LinearLayout>
+            <TextView
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                android:textSize="14dp"
+                android:text="@string/check_tiktok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
             <LinearLayout
                 android:background="@drawable/bg_text_rounded_gray61"
                 android:orientation="horizontal"
@@ -910,7 +910,7 @@
                     android:id="@+id/checkboxDieuKhoan"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:buttonTint="@color/black"
+                    android:buttonTint="@color/primaryBG"
                     />
                 <TextView
                     android:layout_width="match_parent"
