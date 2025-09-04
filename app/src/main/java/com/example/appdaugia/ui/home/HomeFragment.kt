@@ -87,7 +87,7 @@ class HomeFragment : Fragment() {
         tv_phone.text = sessionManager.getPhone()
 
         //goi api login
-        viewModel.getListOrder(sessionManager.getToken())
+        viewModel.getListOrder(context = requireContext(), token = sessionManager.getToken())
 
         recycler_view.layoutManager = LinearLayoutManager(requireContext())
         resListOrder()

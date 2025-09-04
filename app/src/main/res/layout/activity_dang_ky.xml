@@ -394,6 +394,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/lo_country"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -402,6 +403,9 @@
                     app:boxCornerRadiusTopEnd="30dp"
                     app:boxCornerRadiusBottomStart="30dp"
                     app:boxCornerRadiusBottomEnd="30dp"
+                    app:endIconDrawable="@drawable/ic_country_30"
+                    app:endIconTint="@color/black"
+                    app:endIconMode="custom"
                     style="@style/MyTextInputOutlined">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -410,6 +414,8 @@
                         android:hint="Country *"
                         android:id="@+id/txt_country"
                         android:inputType="text"
+                        android:focusable="false"
+                        android:cursorVisible="false"
                         android:singleLine="true"
                         android:textSize="14sp"
                         android:fontFamily="@font/manrope_medium"
@@ -634,11 +640,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:id="@+id/lo_country_rep"
                         app:startIconTint="@color/grey500"
                         app:boxCornerRadiusTopStart="30dp"
                         app:boxCornerRadiusTopEnd="30dp"
                         app:boxCornerRadiusBottomStart="30dp"
                         app:boxCornerRadiusBottomEnd="30dp"
+                        app:endIconDrawable="@drawable/ic_country_30"
+                        app:endIconTint="@color/black"
+                        app:endIconMode="custom"
                         style="@style/MyTextInputOutlined">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -647,6 +657,8 @@
                             android:hint="Country *"
                             android:id="@+id/txt_country_recip"
                             android:inputType="text"
+                            android:focusable="false"
+                            android:cursorVisible="false"
                             android:singleLine="true"
                             android:textSize="14sp"
                             android:fontFamily="@font/manrope_medium"

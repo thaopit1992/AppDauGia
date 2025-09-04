@@ -74,7 +74,7 @@ class DetailActivity : AppCompatActivity() {
 
         if (item != null) {
             //goi api login
-            viewModel.getDetail(sessionManager.getToken(), item.id_encode)
+            viewModel.getDetail(context = this, token = sessionManager.getToken(), id_encode = item.id_encode)
         }
 
         icBack.setOnClickListener {

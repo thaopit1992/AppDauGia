@@ -3,10 +3,13 @@ package com.example.appdaugia.ui.thongtincanhan
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -18,13 +21,22 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.NestedScrollView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.appdaugia.R
+import com.example.appdaugia.adapter.CountryAdapter
+import com.example.appdaugia.data.CountryData
 import com.example.appdaugia.service.request.RegisterRequest
 import com.example.appdaugia.service.viewModel.AuthViewModel
 import com.example.appdaugia.utils.AppStrings
+import com.example.appdaugia.utils.DialogUtils
 import com.example.appdaugia.utils.LoadingDialog
 import com.example.appdaugia.utils.SessionManager
 import com.example.appdaugia.utils.Utils
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
 class ThayDoiThongTinActivity : AppCompatActivity() {
     private lateinit var icBack: ImageView
@@ -51,10 +63,12 @@ class ThayDoiThongTinActivity : AppCompatActivity() {
     private lateinit var check_dif : CheckBox
     private lateinit var nestedScrollView: NestedScrollView
     private lateinit var txt_tiktok: EditText
-
+    private lateinit var lo_country : TextInputLayout
+    private lateinit var lo_country_rep : TextInputLayout
     private lateinit var sessionManager: SessionManager
     private var viewModel = AuthViewModel()
     private lateinit var loadingDialog: LoadingDialog
+    var countries: List<CountryData> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,6 +103,8 @@ class ThayDoiThongTinActivity : AppCompatActivity() {
         txt_location_recip = findViewById(R.id.txt_location_recip)
         txt_country_recip = findViewById(R.id.txt_country_recip)
         txt_tiktok = findViewById(R.id.txt_tiktok)
+        lo_country = findViewById(R.id.lo_country)
+        lo_country_rep = findViewById(R.id.lo_country_rep)
 
         sessionManager = SessionManager(this)
 
@@ -99,8 +115,102 @@ class ThayDoiThongTinActivity : AppCompatActivity() {
         }
 
         //goi api getuser
-        viewModel.getUser(sessionManager.getToken())
+        viewModel.getUser(context = this, token = sessionManager.getToken())
         resGetUser()
+
+        viewModel.getListCountry(context = this, token = AppStrings.TOKEN_BASE)
+        resGetListCountry()
+        lo_country.setEndIconOnClickListener {
+            val bottomSheetDialog = BottomSheetDialog(this, R.style.AppBottomSheetDialogTheme)
+            val view = layoutInflater.inflate(R.layout.bottom_sheet_countries, null)
+            bottomSheetDialog.setContentView(view)
+
+            // RecyclerView + Search
+            val rv = view.findViewById<RecyclerView>(R.id.rvCountries)
+            val etSearch = view.findViewById<TextInputEditText>(R.id.etSearchCountry)
+
+            val adapter = CountryAdapter(countries) { selected ->
+                txt_country.setText(selected.name)   // Fill vào EditText chính
+                bottomSheetDialog.dismiss()
+            }
+
+            rv.layoutManager = LinearLayoutManager(this)
+            rv.adapter = adapter
+
+            // Lắng nghe search
+            etSearch.addTextChangedListener(object : TextWatcher {
+                override fun afterTextChanged(s: Editable?) {
+                    adapter.filter.filter(s.toString())
+                }
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            })
+
+            // Xử lý khi show
+            bottomSheetDialog.setOnShowListener { dialog ->
+                val d = dialog as BottomSheetDialog
+                val bottomSheet = d.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
+                bottomSheet?.let {
+                    // Xoá nền mặc định để lộ drawable bo góc
+                    it.setBackgroundResource(android.R.color.transparent)
+
+                    // Chiếm 90% màn hình
+                    val layoutParams = it.layoutParams
+                    layoutParams.height = (resources.displayMetrics.heightPixels * 0.9f).toInt()
+                    it.layoutParams = layoutParams
+
+                    val behavior = BottomSheetBehavior.from(it)
+                    behavior.state = BottomSheetBehavior.STATE_EXPANDED
+                }
+            }
+            bottomSheetDialog.show()
+        }
+
+        lo_country_rep.setEndIconOnClickListener {
+            val bottomSheetDialog = BottomSheetDialog(this, R.style.AppBottomSheetDialogTheme)
+            val view = layoutInflater.inflate(R.layout.bottom_sheet_countries, null)
+            bottomSheetDialog.setContentView(view)
+
+            // RecyclerView + Search
+            val rv = view.findViewById<RecyclerView>(R.id.rvCountries)
+            val etSearch = view.findViewById<TextInputEditText>(R.id.etSearchCountry)
+
+            val adapter = CountryAdapter(countries) { selected ->
+                txt_country_recip.setText(selected.name)   // Fill vào EditText chính
+                bottomSheetDialog.dismiss()
+            }
+
+            rv.layoutManager = LinearLayoutManager(this)
+            rv.adapter = adapter
+
+            // Lắng nghe search
+            etSearch.addTextChangedListener(object : TextWatcher {
+                override fun afterTextChanged(s: Editable?) {
+                    adapter.filter.filter(s.toString())
+                }
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            })
+
+            // Xử lý khi show
+            bottomSheetDialog.setOnShowListener { dialog ->
+                val d = dialog as BottomSheetDialog
+                val bottomSheet = d.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
+                bottomSheet?.let {
+                    // Xoá nền mặc định để lộ drawable bo góc
+                    it.setBackgroundResource(android.R.color.transparent)
+
+                    // Chiếm 90% màn hình
+                    val layoutParams = it.layoutParams
+                    layoutParams.height = (resources.displayMetrics.heightPixels * 0.9f).toInt()
+                    it.layoutParams = layoutParams
+
+                    val behavior = BottomSheetBehavior.from(it)
+                    behavior.state = BottomSheetBehavior.STATE_EXPANDED
+                }
+            }
+            bottomSheetDialog.show()
+        }
 
         ln_recip.visibility = View.GONE
         check_dif.setOnCheckedChangeListener { _, isChecked ->
@@ -166,8 +276,9 @@ class ThayDoiThongTinActivity : AppCompatActivity() {
                 email = txt_email.text.toString().trim(),
 
                 tiktok_username = txt_tiktok.text.toString().trim(),
+                check_terms = null
             )
-            viewModel.editeUser(request)
+            viewModel.editeUser(context = this, request = request)
         }
 
         resEditUser()
@@ -210,6 +321,16 @@ class ThayDoiThongTinActivity : AppCompatActivity() {
                 Toast.makeText(this, "Get Info failed: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }
+        viewModel.errorMessage.observe(this) { msg ->
+            if (!msg.isNullOrEmpty()) {
+                DialogUtils.showCustomDialog(
+                    context = this,
+                    message = msg,
+                ) {
+                    // Xử lý khi bấm OK
+                }
+            }
+        }
     }
 
     private fun resEditUser(){
@@ -219,12 +340,12 @@ class ThayDoiThongTinActivity : AppCompatActivity() {
                 val message = resp.message
                 //  Read data
                 if(status == 1){
-                    AlertDialog.Builder(this)
-                        .setMessage(resp.message)
-                        .setPositiveButton("OK") { dialog, _ ->
-                            dialog.dismiss()
-                        }
-                        .show()
+                    DialogUtils.showCustomDialog(
+                        context = this,
+                        message = resp.message.toString(),
+                    ) {
+                        // Xử lý khi bấm OK
+                    }
 
                     resp.data?.let {
                         txt_name.setText(resp.data.name ?: "")
@@ -249,11 +370,53 @@ class ThayDoiThongTinActivity : AppCompatActivity() {
                         txt_tiktok.setText(resp.data.tiktok_username?:"")
                     }
                 } else {
-                    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                    DialogUtils.showCustomDialog(
+                        context = this,
+                        message = resp.message.toString()
+                    ) {}
                 }
             }
             result.onFailure { e ->
-                Toast.makeText(this, "Get Info failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                DialogUtils.showCustomDialog(
+                    context = this,
+                    message = e.message.toString()
+                ) {}
+            }
+        }
+        viewModel.errorMessage.observe(this) { msg ->
+            if (!msg.isNullOrEmpty()) {
+                DialogUtils.showCustomDialog(
+                    context = this,
+                    message = msg,
+                ) {
+                    // Xử lý khi bấm OK
+                }
+            }
+        }
+    }
+
+    private fun resGetListCountry(){
+        viewModel.getListCountryResult.observe(this) { result ->
+            result.onSuccess { response ->
+                if (response.status == 1) {
+                    countries = response.data ?: emptyList()
+                } else {
+                    DialogUtils.showCustomDialog(
+                        context = this,
+                        message = response.message.toString()
+                    ) {}
+                }
+            }
+        }
+        viewModel.errorMessage.observe(this) { msg ->
+            if (!msg.isNullOrEmpty()) {
+                DialogUtils.showCustomDialog(
+                    context = this,
+                    message = msg,
+                ) {
+                    // Xử lý khi bấm OK
+                    finish()
+                }
             }
         }
     }

@@ -20,6 +20,7 @@ import com.example.appdaugia.MainActivity
 import com.example.appdaugia.R
 import com.example.appdaugia.service.response.LoginData
 import com.example.appdaugia.service.viewModel.AuthViewModel
+import com.example.appdaugia.utils.DialogUtils
 import com.example.appdaugia.utils.LoadingDialog
 import com.example.appdaugia.utils.SessionManager
 
@@ -87,7 +88,7 @@ class ThongTinCaNhanFragment : Fragment() {
         }
 
         //goi api getuser
-        viewModel.getUser(sessionManager.getToken())
+        viewModel.getUser(context = requireContext(), token = sessionManager.getToken())
         resGetUser()
 
         return root
@@ -146,11 +147,27 @@ class ThongTinCaNhanFragment : Fragment() {
                         txt_contry.setText(resp.data.country?:"")
                     }
                 } else {
-                    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+                    DialogUtils.showCustomDialog(
+                        context = requireContext(),
+                        message = resp.message.toString()
+                    ) {}
                 }
             }
             result.onFailure { e ->
-                Toast.makeText(requireContext(), "Get Info failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                DialogUtils.showCustomDialog(
+                    context = requireContext(),
+                    message = e.message.toString()
+                ) {}
+            }
+        }
+        viewModel.errorMessage.observe(viewLifecycleOwner) { msg ->
+            if (!msg.isNullOrEmpty()) {
+                DialogUtils.showCustomDialog(
+                    context = requireContext(),
+                    message = msg,
+                ) {
+                    // Xử lý khi bấm OK
+                }
             }
         }
     }

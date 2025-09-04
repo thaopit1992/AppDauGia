@@ -8,6 +8,7 @@ import com.example.appdaugia.service.request.RegisterRequest
 import com.example.appdaugia.service.response.ApiResponse
 import com.example.appdaugia.service.response.BaseResponse
 import com.example.appdaugia.service.response.DetailOrderResponse
+import com.example.appdaugia.service.response.ListCoutryResponse
 import com.example.appdaugia.service.response.LoginData
 import com.example.appdaugia.service.response.OrderResponse
 import retrofit2.Response
@@ -21,11 +22,11 @@ interface ApiService {
 
     @Headers("Accept: application/json")
     @POST("api/users/login")
-    suspend fun login(@Body request: LoginRequest): ApiResponse<LoginData>
+    suspend fun login(@Body request: LoginRequest): Response<BaseResponse>
 
     @Headers("Accept: application/json")
     @GET("api/users/information")
-    suspend fun getUser(@Query ("token") token: String?): ApiResponse<LoginData>
+    suspend fun getUser(@Query ("token") token: String?): Response<BaseResponse>
 
     @Headers("Accept: application/json")
     @POST("api/users/register")
@@ -49,4 +50,8 @@ interface ApiService {
     @Headers("Accept: application/json")
     @POST("/api/user/change-information")
     suspend fun editeUser(@Body request: RegisterRequest): Response<BaseResponse>
+
+    @Headers("Accept: application/json")
+    @GET("/api/location/list/country?format")
+    suspend fun getListCountry(@Query ("token") token: String): Response<ListCoutryResponse>
 }

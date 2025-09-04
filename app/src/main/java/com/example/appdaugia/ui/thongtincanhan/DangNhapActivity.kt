@@ -14,6 +14,7 @@ import com.example.appdaugia.MainActivity
 import com.example.appdaugia.R
 import com.example.appdaugia.service.viewModel.AuthViewModel
 import com.example.appdaugia.utils.AppStrings
+import com.example.appdaugia.utils.DialogUtils
 import com.example.appdaugia.utils.LoadingDialog
 import com.example.appdaugia.utils.SessionManager
 import com.example.appdaugia.utils.Utils
@@ -78,7 +79,7 @@ class DangNhapActivity : AppCompatActivity() {
             if (!Utils.ValidationUtils.checkEditTextNotEmpty(txt_pass, "Input your pass word", this)) return@setOnClickListener
 
             //goi api login
-            viewModel.login(AppStrings.TOKEN_BASE,username, password)
+            viewModel.login(context = this, token = AppStrings.TOKEN_BASE,username = username,password=  password)
         }
 
         // xu ly nut back ban phim = icBack
@@ -108,11 +109,24 @@ class DangNhapActivity : AppCompatActivity() {
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
                 } else{
-                    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+                    DialogUtils.showCustomDialog(
+                        context = this,
+                        message = resp.message.toString()
+                    ) {}
                 }
             }
             result.onFailure { e ->
                 Toast.makeText(this, "Login failed: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+        viewModel.errorMessage.observe(this) { msg ->
+            if (!msg.isNullOrEmpty()) {
+                DialogUtils.showCustomDialog(
+                    context = this,
+                    message = msg,
+                ) {
+                    // Xử lý khi bấm OK
+                }
             }
         }
     }

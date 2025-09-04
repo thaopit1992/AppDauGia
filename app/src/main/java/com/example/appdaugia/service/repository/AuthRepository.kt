@@ -7,22 +7,57 @@ import com.example.appdaugia.service.request.LoginRequest
 import com.example.appdaugia.service.request.RegisterRequest
 import com.example.appdaugia.service.response.ApiResponse
 import com.example.appdaugia.service.response.BaseResponse
+import com.example.appdaugia.service.response.ListCoutryResponse
 import com.example.appdaugia.service.response.LoginData
 import com.google.gson.Gson
 
 class AuthRepository {
-    suspend fun login(request: LoginRequest): Result<ApiResponse<LoginData>> {
+    suspend fun login(request: LoginRequest): Result<BaseResponse> {
         return try {
             val response = RetrofitClient.api.login(request)
-            Result.success(response)
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    Result.success(it)
+                } ?: Result.failure(Exception("Empty response body"))
+            } else {
+                // parse lỗi
+                val errorBody = response.errorBody()?.string()
+                val errorResponse = try {
+                    Gson().fromJson(errorBody, BaseResponse::class.java)
+                } catch (e: Exception) {
+                    null
+                }
+                if (errorResponse != null) {
+                    Result.success(errorResponse) // Trả về BaseResponse lỗi
+                } else {
+                    Result.failure(Exception("Unexpected error: $errorBody"))
+                }
+            }
         } catch (e: Exception) {
             Result.failure(e)
         }
     }
-    suspend fun getUser(token: String?): Result<ApiResponse<LoginData>> {
+    suspend fun getUser(token: String?): Result<BaseResponse> {
         return try {
             val response = RetrofitClient.api.getUser(token)
-            Result.success(response)
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    Result.success(it)
+                } ?: Result.failure(Exception("Empty response body"))
+            } else {
+                // parse lỗi
+                val errorBody = response.errorBody()?.string()
+                val errorResponse = try {
+                    Gson().fromJson(errorBody, BaseResponse::class.java)
+                } catch (e: Exception) {
+                    null
+                }
+                if (errorResponse != null) {
+                    Result.success(errorResponse) // Trả về BaseResponse lỗi
+                } else {
+                    Result.failure(Exception("Unexpected error: $errorBody"))
+                }
+            }
         } catch (e: Exception) {
             Result.failure(e)
         }
@@ -88,7 +123,33 @@ class AuthRepository {
                     null
                 }
                 if (errorResponse != null) {
-                    Result.success(errorResponse) // Trả về BaseResponse lỗi
+                    Result.success(errorResponse)
+                } else {
+                    Result.failure(Exception("Unexpected error: $errorBody"))
+                }
+            }
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+    suspend fun getListCountry(token : String): Result<ListCoutryResponse> {
+        return try {
+            val response = RetrofitClient.api.getListCountry(token)
+
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    Result.success(it)
+                } ?: Result.failure(Exception("Empty response body"))
+            } else {
+                // parse lỗi
+                val errorBody = response.errorBody()?.string()
+                val errorResponse = try {
+                    Gson().fromJson(errorBody, ListCoutryResponse::class.java)
+                } catch (e: Exception) {
+                    null
+                }
+                if (errorResponse != null) {
+                    Result.success(errorResponse)
                 } else {
                     Result.failure(Exception("Unexpected error: $errorBody"))
                 }

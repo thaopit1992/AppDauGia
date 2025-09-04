@@ -15,6 +15,7 @@ import com.example.appdaugia.R
 import com.example.appdaugia.service.request.ForgotRequest
 import com.example.appdaugia.service.viewModel.AuthViewModel
 import com.example.appdaugia.utils.AppStrings
+import com.example.appdaugia.utils.DialogUtils
 import com.example.appdaugia.utils.LoadingDialog
 import com.example.appdaugia.utils.SessionManager
 import com.example.appdaugia.utils.Utils
@@ -56,7 +57,7 @@ class QuenMatKhauActivity : AppCompatActivity() {
                 token = AppStrings.TOKEN_BASE,
                 email = txt_email.text.toString()
             )
-            viewModel.forgot(request)
+            viewModel.forgot(context = this, request=request)
         }
 
         resForgot()
@@ -67,17 +68,32 @@ class QuenMatKhauActivity : AppCompatActivity() {
                 val status = resp.status
 
                 if(status == 1){
-                    AlertDialog.Builder(this)
-                        .setMessage(resp.message)
-                        .setPositiveButton("OK") { dialog, _ ->
-                            dialog.dismiss()
-                            finish()
-                        }
-                        .show()
+                    DialogUtils.showCustomDialog(
+                        context = this,
+                        message = resp.message.toString(),
+                    ) {
+                        // Xử lý khi bấm OK
+                        finish()
+                    }
+                } else {
+                    DialogUtils.showCustomDialog(
+                        context = this,
+                        message = resp.message.toString()
+                    ) {}
                 }
             }
             result.onFailure { e ->
                 Toast.makeText(this, "onFailure: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+        viewModel.errorMessage.observe(this) { msg ->
+            if (!msg.isNullOrEmpty()) {
+                DialogUtils.showCustomDialog(
+                    context = this,
+                    message = msg,
+                ) {
+                    // Xử lý khi bấm OK
+                }
             }
         }
     }

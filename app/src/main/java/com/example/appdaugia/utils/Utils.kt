@@ -35,4 +35,5 @@ class Utils {
 
         return builder.toString().trim()
     }
+
 }

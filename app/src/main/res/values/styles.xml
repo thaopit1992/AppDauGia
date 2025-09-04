@@ -54,4 +54,13 @@
         <item name="android:maxLength">1</item>
         <item name="android:layout_margin">8dp</item>
     </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <!-- Xoá nền mặc định để lộ bo góc trắng -->
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>

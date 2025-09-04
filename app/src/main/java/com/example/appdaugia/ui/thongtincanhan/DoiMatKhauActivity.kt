@@ -19,6 +19,7 @@ import com.example.appdaugia.service.request.ChangePassRequest
 import com.example.appdaugia.service.request.ForgotRequest
 import com.example.appdaugia.service.viewModel.AuthViewModel
 import com.example.appdaugia.utils.AppStrings
+import com.example.appdaugia.utils.DialogUtils
 import com.example.appdaugia.utils.LoadingDialog
 import com.example.appdaugia.utils.SessionManager
 import com.example.appdaugia.utils.Utils
@@ -72,7 +73,7 @@ class DoiMatKhauActivity : AppCompatActivity() {
                 password = txt_pass.text.toString(),
                 password_confirmation = txt_re_pass.text.toString(),
             )
-            viewModel.chnagePass(request)
+            viewModel.chnagePass(context = this, request = request)
         }
         resChangePass()
 
@@ -84,19 +85,37 @@ class DoiMatKhauActivity : AppCompatActivity() {
                 val status = resp.status
 
                 if(status == 1){
-                    // 👉 Đăng ký thành công
+                    // 👉thành công
                     sessionManager.updateToken(resp.token)
-                    AlertDialog.Builder(this)
-                        .setMessage(resp.message)
-                        .setPositiveButton("OK") { dialog, _ ->
-                            dialog.dismiss()
-                            finish()
-                        }
-                        .show()
+                    DialogUtils.showCustomDialog(
+                        context = this,
+                        message = resp.message.toString(),
+                    ) {
+                        // Xử lý khi bấm OK
+                        finish()
+                    }
+                } else{
+                    DialogUtils.showCustomDialog(
+                        context = this,
+                        message = resp.message.toString()
+                    ) {}
                 }
             }
             result.onFailure { e ->
-                Toast.makeText(this, "onFailure: ${e.message}", Toast.LENGTH_SHORT).show()
+                DialogUtils.showCustomDialog(
+                    context = this,
+                    message = e.message.toString()
+                ) {}
+            }
+        }
+        viewModel.errorMessage.observe(this) { msg ->
+            if (!msg.isNullOrEmpty()) {
+                DialogUtils.showCustomDialog(
+                    context = this,
+                    message = msg,
+                ) {
+                    // Xử lý khi bấm OK
+                }
             }
         }
     }
