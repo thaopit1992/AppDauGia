@@ -266,7 +266,7 @@
                     android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/total_net_price"
-                        android:paddingRight="8dp"
+                        android:paddingRight="3dp"
                         android:textSize="14sp"
                         tools:text="752,10"
                         android:textStyle="bold"
@@ -274,7 +274,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
-                        android:paddingRight="12dp"
                         android:textSize="14sp"
                         android:text=" €"
                         android:textStyle="bold"
@@ -305,7 +304,7 @@
                     android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/total_vat"
-                        android:paddingRight="8dp"
+                        android:paddingRight="3dp"
                         android:textSize="14sp"
                         tools:text="752,10"
                         android:textStyle="bold"
@@ -313,7 +312,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
-                        android:paddingRight="12dp"
                         android:textSize="14sp"
                         android:text=" €"
                         android:textStyle="bold"
@@ -344,7 +342,7 @@
                     android:layout_height="wrap_content">
                     <TextView
                         android:id="@+id/tolal_price"
-                        android:paddingRight="8dp"
+                        android:paddingRight="3dp"
                         android:textSize="14sp"
                         tools:text="752,10"
                         android:textStyle="bold"
@@ -352,7 +350,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
                     <TextView
-                        android:paddingRight="12dp"
                         android:textSize="14sp"
                         android:text=" €"
                         android:textStyle="bold"
@@ -367,7 +364,6 @@
 
 
     <LinearLayout
-        android:visibility="gone"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"

@@ -76,10 +76,10 @@ class HomeFragment : Fragment() {
         val calendar = Calendar.getInstance()
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
         val greeting: String = when (hour) {
-            in 6..11 -> "Good morning!"
-            in 12..17 -> "Good afternoon!"
-            in 18..21 -> "Good evening!"
-            else -> "Good night!"
+            in 6..11 -> "Guten Morgen!"
+            in 12..17 -> "Guten Tag!"
+            in 18..21 -> "Guten Abend!"
+            else -> "Gute Nacht!"
         }
         time.text = greeting
         tv_name.text = sessionManager.getUserName()

@@ -16,14 +16,14 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="8dp"
-    android:background="@drawable/background_app_3"
+    android:background="@color/white1"
     android:elevation="8dp">
 
     <TextView
         android:id="@+id/tv_option_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Info"
+        android:text="@string/update_info"
         android:padding="12dp"
         android:textStyle="italic"
         android:textColor="@color/black"
@@ -33,12 +33,11 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
     <TextView
-        android:layout_gravity="center"
         android:textStyle="italic"
         android:id="@+id/tv_option_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Change Password"
+        android:text="@string/change_pass"
         android:padding="12dp"
         android:textColor="@color/black"
         android:textSize="16sp" />
@@ -46,12 +45,13 @@
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
+
     <TextView
         android:textStyle="italic"
         android:id="@+id/tv_option_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logout"
+        android:text="@string/logout"
         android:padding="12dp"
         android:textColor="@color/black"
         android:textSize="16sp" />

@@ -63,4 +63,7 @@
     <string name="total_net_0">Total(net)</string>
     <string name="total_net_gr">Total(gross): </string>
     <string name="item"> Item </string>
+    <string name="update_info">Update Info</string>
+    <string name="pay_ment">Payment</string>
+    <string name="logout">Logout</string>
 </resources>

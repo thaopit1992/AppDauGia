@@ -64,4 +64,7 @@
     <string name="total_net_0">Gesamt (netto)</string>
     <string name="total_net_gr">Gesamt (brutto):</string>
     <string name="item">Artikel</string>
+    <string name="update_info">Info aktualisieren</string>
+    <string name="pay_ment">Zahlung</string>
+    <string name="logout">Abmelden</string>
 </resources>

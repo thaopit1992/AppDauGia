@@ -864,6 +864,8 @@
                     android:layout_height="wrap_content"/>
             </LinearLayout>
             <TextView
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="8dp"
                 android:textSize="14dp"
@@ -876,8 +878,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:fontFamily="@font/manrope_extra_light"
                     android:layout_gravity="center"
-                    android:textSize="16sp"
+                    android:textSize="13sp"
                     android:textColor="@color/black"
                     android:text="https://tiktok.com/@"
                     android:layout_width="wrap_content"
@@ -887,7 +890,7 @@
                     android:layout_gravity="center"
                     style="@style/textHint"
                     android:textColor="@color/black"
-                    android:hint="TikTok username"
+                    android:hint="@string/tiktok_us_8"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"/>

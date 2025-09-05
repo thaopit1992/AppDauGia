@@ -751,6 +751,8 @@
                     android:layout_height="wrap_content"/>
             </LinearLayout>
             <TextView
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="8dp"
                 android:textSize="14dp"
@@ -764,7 +766,8 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:layout_gravity="center"
-                    android:textSize="16sp"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/manrope_extra_light"
                     android:textColor="@color/black"
                     android:text="https://tiktok.com/@"
                     android:layout_width="wrap_content"
