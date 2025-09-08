@@ -384,9 +384,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:id="@+id/tv_bank"
                 android:textSize="15sp"
                 android:textColor="@color/black"
-                android:text="Sparkasse Oberlausitz-Niederschlesien "
+                tools:text="Sparkasse Oberlausitz-Niederschlesien "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -405,9 +406,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:id="@+id/tv_acc"
                 android:layout_marginLeft="6dp"
                 android:textSize="15sp"
-                android:text="2025-08-19"
+                tools:text="2025-08-19"
                 android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -427,9 +429,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:id="@+id/tv_add"
                 android:layout_marginLeft="6dp"
                 android:textSize="15sp"
-                android:text="Frauenstraße 21, 02763 Zittau, Germany "
+                tools:text="Frauenstraße 21, 02763 Zittau, Germany "
                 android:textColor="@color/primaryBG"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -450,9 +453,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:id="@+id/tv_acc_usd"
                 android:layout_marginLeft="6dp"
                 android:textSize="15sp"
-                android:text="DE45 8505 0100 0004 8201 00"
+                tools:text="DE45 8505 0100 0004 8201 00"
                 android:textColor="@color/primaryBG"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -473,9 +477,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:id="@+id/tv_acc_eur"
                 android:layout_marginLeft="6dp"
                 android:textSize="15sp"
-                android:text="bank transfer"
+                tools:text="bank transfer"
                 android:textColor="@color/primaryBG"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

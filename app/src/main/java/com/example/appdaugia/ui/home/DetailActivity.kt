@@ -31,6 +31,11 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var tolal_price: TextView
     private lateinit var recycler_view: RecyclerView
     private lateinit var id_order_tv: TextView
+    private lateinit var tv_bank: TextView
+    private lateinit var tv_acc: TextView
+    private lateinit var tv_add: TextView
+    private lateinit var tv_acc_usd: TextView
+    private lateinit var tv_acc_eur: TextView
 
     private lateinit var sessionManager: SessionManager
     private val viewModel = OrderViewModel()
@@ -63,6 +68,11 @@ class DetailActivity : AppCompatActivity() {
         total_vat = findViewById(R.id.total_vat)
         tolal_price = findViewById(R.id.tolal_price)
         id_order_tv = findViewById(R.id.id_order_tv)
+        tv_bank = findViewById(R.id.tv_bank)
+        tv_acc = findViewById(R.id.tv_acc)
+        tv_add = findViewById(R.id.tv_add)
+        tv_acc_usd = findViewById(R.id.tv_acc_usd)
+        tv_acc_eur = findViewById(R.id.tv_acc_eur)
 
 
         // lay du lieu
@@ -85,6 +95,7 @@ class DetailActivity : AppCompatActivity() {
         recycler_view.layoutManager = LinearLayoutManager(this)
 
         resListOrder()
+        resBank()
     }
 
     private fun resListOrder(){
@@ -113,10 +124,40 @@ class DetailActivity : AppCompatActivity() {
                         recycler_view.adapter = adapter
                     }
 
+                    viewModel.getBank(context = this, id = resp.data?.studio?.id_encode, token = sessionManager.getToken())
+
                 } else  {
                     DialogUtils.showCustomDialog(
                         context = this,
                         message = resp.message,
+                    ) {}
+                }
+            }
+            result.onFailure { e ->
+//                Toast.makeText(this, "Failed: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun resBank(){
+        viewModel.resultBank.observe(this) { result ->
+            result.onSuccess { resp ->
+                val status = resp.status
+                if(status == 1) {
+                    // tìm item có key = "bank"
+                    val bankItem = resp.data?.find { it.key == "bank" }
+
+                    bankItem?.let {
+                        tv_bank.setText(it.value?.bank_name)
+                        tv_acc.setText(it.value?.bank_account)
+                        tv_add.setText(it.value?.bank_address)
+                        tv_acc_usd.setText(it.value?.bank_account_usd)
+                        tv_acc_eur.setText(it.value?.bank_account_euro)
+                    }
+                } else  {
+                    DialogUtils.showCustomDialog(
+                        context = this,
+                        message = resp.message.toString(),
                     ) {}
                 }
             }

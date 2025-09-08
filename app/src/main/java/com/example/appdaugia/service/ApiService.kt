@@ -1,21 +1,20 @@
 package com.example.appdaugia.service
 
-import com.example.appdaugia.data.OrderData
 import com.example.appdaugia.service.request.ChangePassRequest
 import com.example.appdaugia.service.request.ForgotRequest
 import com.example.appdaugia.service.request.LoginRequest
 import com.example.appdaugia.service.request.RegisterRequest
-import com.example.appdaugia.service.response.ApiResponse
 import com.example.appdaugia.service.response.BaseResponse
 import com.example.appdaugia.service.response.DetailOrderResponse
 import com.example.appdaugia.service.response.ListCoutryResponse
-import com.example.appdaugia.service.response.LoginData
 import com.example.appdaugia.service.response.OrderResponse
+import com.example.appdaugia.service.response.PaymentResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
@@ -54,4 +53,8 @@ interface ApiService {
     @Headers("Accept: application/json")
     @GET("/api/location/list/country?format")
     suspend fun getListCountry(@Query ("token") token: String): Response<ListCoutryResponse>
+
+    @Headers("Accept: application/json")
+    @GET("/api/studios/settings/payment-methods/{id_encode}")
+    suspend fun getBank(@Path("id_encode") id: Long?, @Query ("token") token: String?): Response<PaymentResponse>
 }

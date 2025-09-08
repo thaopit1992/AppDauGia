@@ -28,5 +28,6 @@ data class OrderData (
     val payment_service : String?,
     val total_price: String?,
     val total_price_net: String?,
-    val items: List<Item>?
+    val items: List<Item>?,
+    val studio: Studio?
 ) : Serializable
